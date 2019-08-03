@@ -79,6 +79,16 @@ textarea{
         display: block;
         margin: .5rem auto;
     }
+    .menu{
+        display: flex;
+        justify-content: space-between;
+    }
+    .seccion{
+        /*flex:1; /*Todos crecen o decrecen por igual*/
+        /*si se quiere que uno sea más que otro se le apunta y se pone un número mayor en flex*/
+
+        flex: 1;
+    }
 }
 .campo label{
     flex: 0 0 9rem;
@@ -120,4 +130,25 @@ textarea{
 }
 a {
     text-decoration: none;
+}
+
+.seccion{
+    margin-top: 2rem;
+    /*centrar iconos*/
+    display:flex;
+    flex-direction: column;
+    align-items: center; 
+}
+.icono{
+    margin: 2rem 0;
+}
+.icono{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--enfasis);
+    display: flex;
+    justify-content: center;/*horizontal*/
+    align-items: center;/*vertical*/
+    font-size: 3rem;  
 }
