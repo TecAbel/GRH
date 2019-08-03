@@ -75,7 +75,7 @@ textarea{
         /*display: block;
         margin: 0 auto;
     }*/
-    .guardar{ 
+    .guardar, .importante{ 
         display: block;
         margin: 0 auto;
     }
@@ -116,6 +116,6 @@ textarea{
 
 .importante{
     text-align: center;
-    margin: 3rem 0;
+    margin: 3rem auto;
     font-style: italic;
 }
