@@ -19,8 +19,8 @@ html {
 body{
     font-family: var(--fuentePrincipal);
     background-color: var(--primario);
-    line-height: 2;
-    font-size: 2rem;
+    min-height: 100%;
+    font-size: 1.6rem;
 }
 
 h1{
@@ -40,13 +40,15 @@ img{
     width: 100%;
 }
 input{
-    border-radius: 1rem;
-    margin: 0 auto;
+    border-radius: .3rem;
+}
+textarea{
+    border-radius: .3rem;
 }
 .contenedor{
-    padding-top: 2rem;
+    padding: 3rem;
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 2rem auto;
     width: 95%;
     background-color: var(--leve);
     border-radius: 1rem;
@@ -61,7 +63,6 @@ input{
 }
 @media(min-width:768px){
     .contenedor-campos{
-        max-width: 99%;
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
@@ -69,8 +70,13 @@ input{
     .campo{
         flex: 0 0 calc(50% - 1rem);
     }
-    form{
-        max-width: 65%;
+    /*form{
+        /*max-width: 65%;*/
+        /*display: block;
+        margin: 0 auto;
+    }*/
+    .guardar{ 
+        display: block;
         margin: 0 auto;
     }
 }
@@ -88,4 +94,28 @@ input{
 }
 .w-100{
     flex: 0 0 100%;
+}
+
+.boton{
+    margin-top: 1rem;
+    background-color: var(--primario);
+    color: white;
+    font-size: 2rem;
+    border-radius: .8rem;
+    padding: .7rem;
+}
+
+.boton:hover{
+    background: var(--secundario);
+    color: var(--enfasis);
+}
+
+.guardar{
+    text-align: center;
+}
+
+.importante{
+    text-align: center;
+    margin: 3rem 0;
+    font-style: italic;
 }
