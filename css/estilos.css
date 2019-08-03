@@ -25,16 +25,16 @@ body{
 
 h1{
     font-family: var(--fuenteTitulos);
-    font-size: 4rem;
+    font-size: 3rem;
     text-align: center;
     text-transform: uppercase;
-    color: var(--enfasis);
+    color: var(--leve);
 }
 h3{
     font-family: var(--fuenteTitulos);
     text-align: center;
     text-transform: uppercase;
-    color: var(--enfasis);
+    color: var(--primario);
 }
 img{
     width: 100%;
