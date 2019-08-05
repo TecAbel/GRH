@@ -31,7 +31,11 @@
                 </div>
                 <div class="guardar">
                     <!--<input type="submit" name="btnEntrar" value="Entrar" class="boton">-->
-                    <a class="boton" href="menu-principal.html">Entrar</a>
+                    <a class="boton" href="menu-principal.php">Entrar</a>
+                </div>
+                <div class="guardar">
+                    <!--<input type="submit" name="btnEntrar" value="Entrar" class="boton">-->
+                    <a class="boton" href="registro-usuario.php">Regístrate</a>
                 </div>
             </div>
         </form>

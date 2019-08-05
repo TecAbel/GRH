@@ -153,7 +153,9 @@ header{
 }
 
 .guardar{
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .importante{
