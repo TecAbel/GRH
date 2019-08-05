@@ -29,6 +29,7 @@ h1{
     text-align: center;
     text-transform: uppercase;
     color: var(--leve);
+    
 }
 h3{
     font-family: var(--fuenteTitulos);
@@ -44,6 +45,38 @@ input{
 }
 textarea{
     border-radius: .3rem;
+}
+header{
+    color: var(--primario);
+}
+.fondo-login{
+    background-image: url(../img/trade.jpg);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+.hero{
+    background-image: url(../img/office.jpg);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    height: 30rem;
+    position: relative;
+    display: flex;/*quita el espacio*/
+    justify-content: center;
+    align-items: center;
+}
+.contenedor-hero{
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+.hero::after{
+    content:'';
+    background-color: rgba(0, 0, 0, .7);
+    position: absolute;
+    top: 0;
+    left:0;
+    right:0;
+    bottom:0;
 }
 .contenedor{
     padding: 3rem;
