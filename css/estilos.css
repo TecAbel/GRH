@@ -1,6 +1,10 @@
 :root{
-    --fuentePrincipal: 'Open Sans', sans-serif;;
+    --fuentePrincipal: 'Maven Pro', sans-serif;
     --fuenteTitulos: 'Anton', sans-serif;
+    
+
+    --fuenteGRH: 'Paytone One', sans-serif;
+
 
     --primario:	rgb(22, 122, 181);
     --secundario: rgb(35, 136, 194);
@@ -24,7 +28,7 @@ body{
 }
 
 h1{
-    font-family: var(--fuenteTitulos);
+    font-family: var(--fuenteGRH);
     font-size: 3rem;
     text-align: center;
     text-transform: uppercase;
@@ -48,6 +52,11 @@ textarea{
 }
 header{
     color: var(--primario);
+}
+.eslogan{
+    font-family: 'Yellowtail', cursive;
+    font-size: 2.5rem;
+    text-align:center;
 }
 .fondo-login{
     background-image: url(../img/trade.jpg);
@@ -108,7 +117,7 @@ header{
         /*display: block;
         margin: 0 auto;
     }*/
-    .guardar, .importante{ 
+    .importante{ 
         display: block;
         margin: .5rem auto;
     }
@@ -151,11 +160,15 @@ header{
     background: var(--secundario);
     color: var(--enfasis);
 }
-
+.contenedor-botones{
+    margin: 0 auto;
+    width: 80%;
+    display: flex ;
+    justify-content: space-around;
+}
 .guardar{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    margin-top: 1rem;
+    flex-wrap: nowrap;
 }
 
 .importante{

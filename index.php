@@ -6,7 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/estilos.css">
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/alertify.min.js"></script>
+
+    <!-- CSS alertify -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/alertify.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/default.min.css"/>
+    <!--ajax-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Monoton|Paytone+One|Yellowtail&display=swap" rel="stylesheet">
     <title>GRH | Login</title>
+
+    
 </head>
 <body>
     <div class="hero">
@@ -16,29 +29,37 @@
     </div>
     <div class="contenedor">
         <h3>Inicie sesión</h3>
+        <p class="eslogan">Tu mejor manera de cobrar</p>
         <form method="POST">
+        <script>
+            $(document).ready(function(){
+                $('#btnRegistro').click(function(){
+                    window.location= 'registro-usuario.php';
+                });
+            });
+        </script>
             <div class="contenedor-campos">
-                <div class="importante">
-                    Tu mejor manera de cobrar
-                </div>
                 <div class="campo w-100">
                     <label for="txtUsuario">Usuario: </label>
-                    <input type="text" placeholder="ejemplo@mail.com" id="txtUsuario" name="txtUsuario" required>
+                    <input type="email" placeholder="ejemplo@mail.com" id="txtUsuario" name="txtUsuario" required>
                 </div>
                 <div class="campo w-100">
                     <label for="txtPass">Contraseña: </label>
                     <input type="password" id="txtPass" name="txtPass" required>
                 </div>
-                <div class="guardar">
-                    <!--<input type="submit" name="btnEntrar" value="Entrar" class="boton">-->
-                    <a class="boton" href="menu-principal.php">Entrar</a>
-                </div>
-                <div class="guardar">
-                    <!--<input type="submit" name="btnEntrar" value="Entrar" class="boton">-->
-                    <a class="boton" href="registro-usuario.php">Regístrate</a>
+                <div class="contenedor-botones">
+                    <div class="guardar">
+                        <input type="submit" name="btnEntrar" id="btnEntrar" value="Entrar" class="boton">
+                        <!--<a class="boton" href="menu-principal.php">Entrar</a>-->
+                    </div>
+                    <div class="guardar">
+                        <input type="button" name="btnRegistro" id="btnRegistro"  value="Regístrate" class="boton">
+                    </div>
                 </div>
             </div>
         </form>
     </div>
 </body>
 </html>
+
+<!--onclick="window.location.href='registro-usuario.php'"-->
