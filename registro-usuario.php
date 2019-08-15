@@ -1,3 +1,6 @@
+<?php
+    header('Content-type: text/html; charset=UTF-8');  
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +30,7 @@
                 /*$('#formulario').validate();*/
                 $("#formulario").validate({
                     submitHandler: function(form){
-                        alertify.confirm('Atención', 'Una vez realice este registro no podrá editar ni cambiar su nombre ligado a esta cuenta pues este será contante para no tener problemas con sus reportes de cobro. ¿La información es correcta?', 
+                        alertify.confirm('Atención', 'Una vez realice este registro no podrá editar ni cambiar su nombre ligado a esta cuenta pues este será constante para no tener problemas con sus reportes de cobro. ¿La información es correcta?', 
                         function(){ alertify.success('Se aceptó el acuerdo'); $("formulario").submit; window.location = "menu-principal.php"; },
                         function(){ alertify.error('Cancelado')}
                         ); 
