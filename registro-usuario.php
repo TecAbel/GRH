@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/estilos.css">
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Monoton|Paytone+One|Yellowtail&display=swap" rel="stylesheet">
-
+    
 
     <!-- JavaScript -->
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/alertify.min.js"></script>
@@ -33,8 +33,7 @@
                         alertify.confirm('Atención', 'Una vez realice este registro no podrá editar ni cambiar su nombre ligado a esta cuenta pues este será constante para no tener problemas con sus reportes de cobro. ¿La información es correcta?', 
                         function(){ alertify.success('Se aceptó el acuerdo'); $("formulario").submit; window.location = "menu-principal.php"; },
                         function(){ alertify.error('Cancelado')}
-                        ); 
-                        
+                        );                         
                     }
                 });
 
@@ -49,6 +48,14 @@
             });
         });
     </script>
+    <script>
+        var pase = document.getElementById("txtPass"), pase1 = document.getElementById("txtPass1");
+        function validatePass(){
+            if(pase.value != pase1.value){
+                pase1.setCustomValidity("¡Contraseñas no coinciden!");
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="hero">
@@ -62,16 +69,26 @@
         <form method="post" id="formulario" onsubmit="javascript:return false;">
             <div class="contenedor-campos">
                 <div class="campo">
-                    <label for="txtNombre">Nombre: </label>
-                    <input type="text" id="txtNombre" placeholder="Paterno - Materno - Nombres" name="txtCorreo" required>
-                </div>
-                <div class="campo">
                     <label for="txtCorreo">Correo: </label>
                     <input type="email" placeholder="ejemplo@dominio.com" id="txtCorreo" name="txtCorreo" required>
                 </div>
                 <div class="campo">
+                    <label for="txtCorreo1">Confirma correo: </label>
+                    <input type="email" placeholder="ejemplo@dominio.com" id="txtCorreo1" name="txtCorreo1" required>
+                </div>
+                <div class="campo">
+                    <label for="txtNombre">Nombre: </label>
+                    <input type="text" id="txtNombre" placeholder="Paterno - Materno - Nombres" name="txtNombre" required>
+                </div>
+                <div class="campo">
+                    <label for="txtTelefono">Teléfono: </label>
+                    <input type="tel" placeholder="10 dígitos" id="txtTelefono" name="txtTelefono" maxlength="10" required pattern="[0-9]{10}">
+                    <span class="estado"></span>
+                </div>
+                
+                <div class="campo">
                     <label for="txtPass">Contraseña: </label>
-                    <input type="password" id="txtPass" name="txtPass1" required>
+                    <input type="password" id="txtPass" name="txtPass" required>
                 </div>
                 <div class="campo">
                     <label for="txtPass1">Confirme contraseña: </label>
