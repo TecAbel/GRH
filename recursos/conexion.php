@@ -1,5 +1,6 @@
 <?php
     header('Content-Type: text/html; charset=utf-8');
+    session_start();
     function conectar(){
         $host = 'localhost';
         $usuario = 'grh_god';
@@ -9,6 +10,7 @@
         
         return $conn;
     }
+    
     function desconectar(){
         mysqli_close($conn);
     }
