@@ -2,7 +2,7 @@
     header('Content-Type: text/html; charset=utf-8');
     include('recursos\conexion.php');
     include('recursos\validaciones.php');
-    $_SESSION['usuario'] = $usuario;
+    
     validarInicio($usuario);
 ?>
 

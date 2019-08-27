@@ -1,5 +1,5 @@
 <?php
-    header('Content-type: text/html; charset=UTF-8');  
+    header('Content-type: text/html; charset=UTF-8'); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,17 +26,79 @@
     <title>GRH | Registro de usuario</title>
     <script>
         $(document).ready(function(){
+            function login(){
+                window.locationf='index.php';
+            }
             function validarForm(){
-                /*$('#formulario').validate();*/
-                $("#formulario").validate({
-                    submitHandler: function(form){
-                        alertify.confirm('Atención', 'Una vez realice este registro no podrá editar ni cambiar su nombre ligado a esta cuenta pues este será constante para no tener problemas con sus reportes de cobro. ¿La información es correcta?', 
-                        function(){ alertify.success('Se aceptó el acuerdo'); $("formulario").submit; window.location = "menu-principal.php"; },
-                        function(){ alertify.error('Cancelado')}
-                        );                         
+                var validator = $("#formulario").validate({
+                    rules:{
+                        txtCorreo: {
+                            required: true
+                        },
+                        txtCorreo1:{
+                            required:true,
+                            equalTo: "#txtCorreo"
+                        },
+                        txtNombre: {
+                            required: true
+                        },
+                        txtTelefono: {
+                            required: true
+                        },
+                        txtPass: {
+                            required: true
+                        },
+                        txtPass1:{
+                            required: true,
+                            equalTo: "#txtPass"
+                        }
+                    },
+                    messages:{
+                        txtCorreo:{
+                            required: "&#10060"
+                        },
+                        txtCorreo1:{
+                            required: "&#10060",
+                            equalTo: "El correo no coincide &#10060"
+                        },
+                        txtNombre:{
+                            required: "&#10060"
+                        },
+                        txtTelefono:{
+                            required: "&#10060"
+                        },
+                        txtPass:{
+                            required: "&#10060"
+                        },
+                        txtPass1:{
+                            required: "&#10060",
+                            equalTo: "Las contraseñas no coinciden &#10060"
+                        }
                     }
                 });
 
+                if(validator.form()){
+                    alertify.confirm('Atención', 'Una vez realice este registro no podrá editar ni cambiar su nombre ligado a esta cuenta pues este será constante para no tener problemas con sus reportes de cobro. ¿La información es correcta?',
+                    function(){
+                        $.ajax({
+                            url:"recursos/nuevo_usuario.php",
+                            type: "post",
+                            data: $("#formulario").serialize(),
+                            success: function(d){
+                                alertify.success('Registro Exitoso');
+                                setTimeout(function(){
+                                    location.href="index.php";
+                                }, 3000);
+                            },
+                            error:function(d){
+                                alertify.error(d);
+                            }
+                        });
+                    },
+                    function(){ 
+                            alertify.error('Cancelado')}
+                        );
+                }
             }
             
             $("#btnGuardar").click(function(){
@@ -70,29 +132,29 @@
             <div class="contenedor-campos">
                 <div class="campo">
                     <label for="txtCorreo">Correo: </label>
-                    <input type="email" placeholder="ejemplo@dominio.com" id="txtCorreo" name="txtCorreo" required>
+                    <input type="email" placeholder="ejemplo@dominio.com" id="txtCorreo" name="txtCorreo">
                 </div>
                 <div class="campo">
                     <label for="txtCorreo1">Confirma correo: </label>
-                    <input type="email" placeholder="ejemplo@dominio.com" id="txtCorreo1" name="txtCorreo1" required>
+                    <input type="email" placeholder="ejemplo@dominio.com" id="txtCorreo1" name="txtCorreo1" >
                 </div>
                 <div class="campo">
                     <label for="txtNombre">Nombre: </label>
-                    <input type="text" id="txtNombre" placeholder="Paterno - Materno - Nombres" name="txtNombre" required>
+                    <input type="text" id="txtNombre" placeholder="Paterno - Materno - Nombres" name="txtNombre">
                 </div>
                 <div class="campo">
                     <label for="txtTelefono">Teléfono: </label>
-                    <input type="tel" placeholder="10 dígitos" id="txtTelefono" name="txtTelefono" maxlength="10" required pattern="[0-9]{10}">
+                    <input type="tel" placeholder="10 dígitos" id="txtTelefono" name="txtTelefono" maxlength="10" pattern="[0-9]{10}">
                     <span class="estado"></span>
                 </div>
                 
                 <div class="campo">
                     <label for="txtPass">Contraseña: </label>
-                    <input type="password" id="txtPass" name="txtPass" required>
+                    <input type="password" id="txtPass" name="txtPass">
                 </div>
                 <div class="campo">
                     <label for="txtPass1">Confirme contraseña: </label>
-                    <input type="password" id="txtPass1" name="txtPass1" required>
+                    <input type="password" id="txtPass1" name="txtPass1">
                 </div>
                 <div class="importante">
                     <p>Tu información solo será usada únicamente con el objetivo principal de GRH &copy, el cual es ayudarte a generar tus reportes de cobro.</p>
