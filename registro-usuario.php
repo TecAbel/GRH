@@ -85,13 +85,17 @@
                             type: "post",
                             data: $("#formulario").serialize(),
                             success: function(d){
-                                alertify.success('Registro Exitoso');
-                                setTimeout(function(){
-                                    location.href="index.php";
-                                }, 3000);
-                            },
-                            error:function(d){
-                                alertify.error(d);
+                                /*alertify.success(d);*/
+                                if(d=="Este correo ya ha sido registrado"){
+                                    alertify.error(d);
+                                }else{
+                                    
+                                    alertify.success(d);
+                                    setTimeout(function(){
+                                        location.href="index.php";
+                                    }, 3000);
+                                }
+                                
                             }
                         });
                     },

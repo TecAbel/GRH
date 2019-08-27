@@ -62,13 +62,13 @@ input:invalid + span::after{
     color: #f00;
     padding-left: 5px;
     font-size: 2rem;
-}*/
+}
 input:valid + span::after{
     content: "\2714";
     color: #26b72b;
     padding-left: 5px;
     font-size: 2rem;
-}
+}*/
 .eslogan{
     font-family: 'Yellowtail', cursive;
     font-size: 2.5rem;
