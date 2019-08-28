@@ -50,17 +50,21 @@
                     rules:{
                         txtNumero:{
                             required: true,
-                            number: true
+                            number: true,
+                            minlength: 8,
+                            maxlength:10
                         },
-                        txtFrc:{
-                            maxlength: 13
+                        txtRfc:{
+                            maxlength: 13,
+                            minlength: 13
                         }
                     },
                     messages:{
                         txtNumero:{
                             required: "&#10060",
-                            number: "&#10060",
-
+                            number: "Solo números &#10060",
+                            minlength: "Mínimo 8 dígitos &#10060",
+                            maxlength: "Máximo 10 dígitos &#10060"
                         },
                         txtRfc:{
                             maxlength: "Máximo 13 &#10060",
@@ -77,7 +81,15 @@
                             type:"post",
                             data:$('#formulario').serialize(),
                             success: function(d){
-                                alert(d);
+                                if(d== true){
+                                    alertify.message("Trabajando...");
+                                    setTimeout(function(){
+                                        location.reload();
+                                    }, 1500);
+                                }
+                                else{
+                                    alertify.error(d);
+                                }
                             }
                         });
                     },
