@@ -60,9 +60,9 @@
                 <p class="importante">
                     Aquí podrás ver tus datos personales y editar algunos, excepto correo y tu nombre como se te notificó en el momento en el que te registraste.
                 </p>
-                <p>Propietario de la cuenta: <strong><?php echo  $datosPersonales['nombre_user'] ?>.</strong></p>
+                <p>Propietario: <strong><?php echo  $datosPersonales['nombre_user'] ?>.</strong></p>
                 <div class="campo">
-                    <p>Cuenta ligada al correo: <strong><?php echo $usuario?></strong></p>
+                    <p>Correo: <strong><?php echo $usuario?></strong></p>
                 </div>
                 <div class="campo">
                     <label for="txtNumero">Numero: </label>
