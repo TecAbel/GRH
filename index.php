@@ -1,6 +1,5 @@
 <?php
-    
-    //$conn = conectar();
+    include('recursos\repetitivo.php');
 ?>
 
 <!DOCTYPE html>
@@ -94,7 +93,7 @@
         
             <div class="contenedor-campos">
                 <div class="campo w-100">
-                    <label for="txtUsuario">Usuario: </label>
+                    <label for="txtUsuario">Correo: </label>
                     <input type="email" placeholder="ejemplo@mail.com" id="txtUsuario" name="txtUsuario" >
                 </div>
                 <div class="campo w-100">
@@ -113,6 +112,7 @@
             </div>
         </form>
     </div>
+    <?php echo getFooter(); ?>
 </body>
 </html>
 

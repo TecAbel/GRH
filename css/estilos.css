@@ -27,6 +27,7 @@ body{
     background-image: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%);
     min-height: 100%;
     font-size: 1.6rem;
+    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
 }
 
 h1{
@@ -34,7 +35,7 @@ h1{
     font-size: 3rem;
     text-align: center;
     text-transform: uppercase;
-    color: var(--leve);
+    color: var(--blanco);
     
 }
 h3{
@@ -80,7 +81,7 @@ input:valid + span::after{
     background-attachment: fixed;
 }
 .hero{
-    background-image: url(../img/office.jpg);
+    background-image: url(../img/work.jpg);
     background-size: 100% 100%;
     background-attachment: fixed;
     height: 30rem;
@@ -96,7 +97,7 @@ input:valid + span::after{
 }
 .hero::after{
     content:'';
-    background-color: rgba(0, 0, 0, .7);
+    background-color: rgba(0, 0, 0, .3);
     position: absolute;
     top: 0;
     left:0;
@@ -229,3 +230,21 @@ a {
     border: none;
 }
 
+.contenedor-footer {
+    padding: 3rem;
+    
+    margin-top: 10rem !important;
+    margin-bottom: 3rem !important; 
+    margin: 0 auto;
+
+    width: 95%;
+    background-color: var(--blanco);
+    border-radius: 1rem;
+    -webkit-box-shadow: 0px 20px 28px 0px rgba(0,0,0,1);
+    -moz-box-shadow: 0px 20px 28px 0px rgba(0,0,0,1);
+    box-shadow: 0px 20px 28px 0px rgba(0,0,0,1);
+}
+
+footer p{
+    text-align: center;    
+}

@@ -1,6 +1,6 @@
 <?php
     header('Content-Type: text/html; charset=utf-8');
-    
+    include('recursos\repetitivo.php');
     include('recursos\validaciones.php');
     $usuario = $_SESSION['usuario'];
     validarInicio($usuario);
@@ -106,5 +106,7 @@
             </div>
         </div>
     </form>
+
+    <?php echo getFooter();?>
 </body>
 </html>
