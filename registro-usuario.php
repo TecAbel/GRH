@@ -43,7 +43,10 @@
                             required: true
                         },
                         txtTelefono: {
-                            required: true
+                            required: true,
+                            number: true,
+                            minlength: 8,
+                            maxlength:10
                         },
                         txtPass: {
                             required: true
@@ -65,7 +68,10 @@
                             required: "&#10060"
                         },
                         txtTelefono:{
-                            required: "&#10060"
+                            required: "&#10060",
+                            number: "Solo números &#10060",
+                            minlength: "Mínimo 8 dígitos &#10060",
+                            maxlength: "Máximo 10 dígitos &#10060"                  
                         },
                         txtPass:{
                             required: "&#10060"
@@ -84,7 +90,7 @@
                             url:"recursos/nuevo_usuario.php",
                             type: "post",
                             data: $("#formulario").serialize(),
-                            success: function(d){
+                            success:function(d){
                                 /*alertify.success(d);*/
                                 if(d=="Este correo ya ha sido registrado"){
                                     alertify.error(d);
@@ -148,7 +154,7 @@
                 </div>
                 <div class="campo">
                     <label for="txtTelefono">Teléfono: </label>
-                    <input type="tel" placeholder="10 dígitos" id="txtTelefono" name="txtTelefono" maxlength="10" pattern="[0-9]{10}">
+                    <input type="tel" placeholder="10 dígitos" id="txtTelefono" name="txtTelefono" maxlength="10" pattern="[0-9]">
                     <span class="estado"></span>
                 </div>
                 

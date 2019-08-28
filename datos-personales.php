@@ -3,6 +3,7 @@
     include('recursos\repetitivo.php');
     include('recursos\peticiones.php');
     include('recursos\validaciones.php');
+    
     $usuario = $_SESSION['usuario'];
     validarInicio($usuario);
     $datosPersonales = getDatosPersonales($usuario);
@@ -44,6 +45,52 @@
             $("#txtNumeroEmpleado").val('<?php echo $datosPersonales['num_empleado'] ?>');
             $("#txtRfc").val('<?php echo $datosPersonales['rfc'] ?>');
             
+            function validarForm(){
+                var validator = $("#formulario").validate({
+                    rules:{
+                        txtNumero:{
+                            required: true,
+                            number: true
+                        },
+                        txtFrc:{
+                            maxlength: 13
+                        }
+                    },
+                    messages:{
+                        txtNumero:{
+                            required: "&#10060",
+                            number: "&#10060",
+
+                        },
+                        txtRfc:{
+                            maxlength: "Máximo 13 &#10060",
+                            minlength: "Mínimo 13 &#10060"
+                        } 
+                    }
+                });
+
+                if(validator.form()){
+                    alertify.confirm('Se require confrimación','¿Está seguro de realizar estos cambios?',
+                    function(){
+                        $.ajax({
+                            url: "recursos/config-datos-personales.php",
+                            type:"post",
+                            data:$('#formulario').serialize(),
+                            success: function(d){
+                                alert(d);
+                            }
+                        });
+                    },
+                    function(){
+                        alertify.error("Acción cancelada");
+                    });
+                }
+            }
+
+            $("#btnEditar").click(function(){
+                validarForm();
+            });
+
         });
     </script>
 </head>
@@ -53,7 +100,7 @@
             <h1>Datos Personales</h1>
         </div>
     </div>
-    <form method="post" onsubmit="javascript:return false;">
+    <form method="post" id="formulario" onsubmit="javascript:return false;">
         <div class="contenedor">
             <p class="eslogan">Tu mejor manera de cobrar</p>
             <div class="contenedor-campos">
@@ -66,15 +113,15 @@
                 </div>
                 <div class="campo">
                     <label for="txtNumero">Numero: </label>
-                    <input type="text" id="txtNumero">
+                    <input type="text" id="txtNumero" name="txtNumero" pattern="[0-9]{10}">
                 </div>
                 <div class="campo">
                     <label for="txtNumeroEmpleado">Numero de empleado: </label>
-                    <input type="text" id="txtNumeroEmpleado">
+                    <input type="text" id="txtNumeroEmpleado" name="txtNumeroEmpleado">
                 </div>
                 <div class="campo w-100">
                     <label for="txtRfc">RFC: </label>
-                    <input type="text" id="txtRfc">
+                    <input type="text" id="txtRfc" style="text-transform:uppercase;" name="txtRfc">
                 </div>
                 <div class="campo guardar w-100">
                     <input class="boton" id="btnEditar" name="btnEditar" type="submit" value="Editar">

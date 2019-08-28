@@ -63,7 +63,7 @@
                                     alertify.error("Correo y contraseña incorrectos");
                                 }else{
                                     
-                                    alertify.success(d);
+                                    alertify.message(d);
                                     setTimeout(function(){
                                         location.href="menu-principal.php";
                                     }, 1500);

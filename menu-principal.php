@@ -50,7 +50,7 @@
                 $.ajax({
                     url: "recursos/salir.php",
                     success:function(){
-                        alertify.success("Hasta pronto");
+                        alertify.message("Hasta pronto");
                         setTimeout(function(){
                                 location.href="index.php";
                             }, 1500);
