@@ -4,6 +4,7 @@
     include('recursos\validaciones.php');
     $usuario = $_SESSION['usuario'];
     validarInicio($usuario);
+    
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +34,18 @@
 
     <script>
         $(document).ready(function(){
+            $('#btnDatosPersonales').click(function(){
+                window.location= 'datos-personales.php';
+            });
+
+            $('#btnEmpleadores').click(function(){
+                window.location= 'empleadores.php';
+            });
+
+            $('#btnReportes').click(function(){
+                window.location= 'reportes.php';
+            });
+
             function cerrarSesion(){
                 $.ajax({
                     url: "recursos/salir.php",
@@ -40,7 +53,7 @@
                         alertify.success("Hasta pronto");
                         setTimeout(function(){
                                 location.href="index.php";
-                            }, 2300);
+                            }, 1500);
                     }
                 });
             }
@@ -48,6 +61,8 @@
             $("#btnCerrarSesion").click(function(){
                 cerrarSesion();
             });
+
+            
 
         });
     </script>
@@ -59,35 +74,37 @@
             <h1>Menú principal</h1>
         </div>
     </div>
-    <div class="contenedor">
-        <div class="importante">
-           Ingresa tus datos así como tu cuota por hora y tus jefes o destinatarios para tener una mejor experiencia de usuario.
-           <br> <br>
-           Tu mejor manera de cobrar
-        </div>
-        <div class="menu">
-            <div class="seccion">
-                <h3>Datos personales</h3>
-                <div class="icono">
-                    <i class="fas fa-user"></i>
+    <form method="post" onsubmit="javascript:return false;">
+        <div class="contenedor">
+            <p class="eslogan">Tu mejor manera de cobrar</p>
+            <div class="importante">
+            Ingresa tus datos así como tu cuota por hora y tus jefes o destinatarios para tener una mejor experiencia de usuario.
+            
+            </div>
+            <div class="menu">
+                <div class="seccion">
+                    <h3>Datos personales</h3>
+                    <div class="icono">
+                        <button class="menu-boton" id="btnDatosPersonales" name="btnDatosPersonales"><i class="fas fa-user"></i></button>
+                    </div>
+                </div>
+                <div class="seccion">
+                    <h3>Empleadores / jefes</h3>
+                    <div class="icono">
+                        <button class="menu-boton" id="btnEmpleadores"><i class="fas fa-briefcase"></i></button>
+                    </div>
+                </div>
+                <div class="seccion">
+                    <h3>Reportes</h3>
+                    <div class="icono">
+                        <button class="menu-boton" id="btnReportes"><i class="fas fa-cash-register"></i></button>
+                    </div>
                 </div>
             </div>
-            <div class="seccion">
-                <h3>Destinatarios / Jefes</h3>
-                <div class="icono">
-                    <i class="fas fa-briefcase"></i>
-                </div>
-            </div>
-            <div class="seccion">
-                <h3>Reportes</h3>
-                <div class="icono">
-                    <i class="fas fa-cash-register"></i>
-                </div>
+            <div class="campo guardar w-100">
+                <input type="button" name="btnCerrarSesion" id="btnCerrarSesion"  value="Cerrar sesión" class="boton">
             </div>
         </div>
-        <div class="guardar">
-            <input type="button" name="btnCerrarSesion" id="btnCerrarSesion"  value="Cerrar sesión" class="boton">
-        </div>
-    </div>
+    </form>
 </body>
 </html>

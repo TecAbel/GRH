@@ -103,6 +103,9 @@ input:valid + span::after{
     right:0;
     bottom:0;
 }
+.bloqueado{
+    border: none;
+}
 .contenedor{
     padding: 3rem;
     max-width: 1000px;
@@ -120,6 +123,10 @@ input:valid + span::after{
     align-items: center;
 }
 @media(min-width:768px){
+    .menu-boton{
+        background-color: transparent;
+        border: none;
+    }
     .contenedor-campos{
         display: flex;
         justify-content: space-between;
@@ -216,3 +223,9 @@ a {
     align-items: center;/*vertical*/
     font-size: 3rem;  
 }
+
+.menu-boton{
+    background-color: transparent;
+    border: none;
+}
+

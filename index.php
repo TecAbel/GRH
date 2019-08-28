@@ -67,7 +67,7 @@
                                     alertify.success(d);
                                     setTimeout(function(){
                                         location.href="menu-principal.php";
-                                    }, 2300);
+                                    }, 1500);
                                 }
                         }
                     });
@@ -101,15 +101,15 @@
                     <label for="txtPass">Contraseña: </label>
                     <input type="password" id="txtPass" name="txtPass">
                 </div>
-                <div class="contenedor-botones">
-                    <div class="guardar">
-                        <input type="submit" name="btnEntrar" id="btnEntrar" value="Entrar" class="boton">
-                        <!--<a class="boton" href="menu-principal.php">Entrar</a>-->
-                    </div>
-                    <div class="guardar">
-                        <input type="button" name="btnRegistro" id="btnRegistro"  value="Regístrate" class="boton">
-                    </div>
+                
+                <div class="campo guardar w-100">
+                    <input type="submit" name="btnEntrar" id="btnEntrar" value="Entrar" class="boton">
+                    <!--<a class="boton" href="menu-principal.php">Entrar</a>-->
                 </div>
+                <div class="campo guardar w-100">
+                    <input type="button" name="btnRegistro" id="btnRegistro"  value="Regístrate" class="boton">
+                </div>
+                
             </div>
         </form>
     </div>

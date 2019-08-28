@@ -163,16 +163,16 @@
                 <div class="importante">
                     <p>Tu información solo será usada únicamente con el objetivo principal de GRH &copy, el cual es ayudarte a generar tus reportes de cobro.</p>
                 </div>
-                <div class="contenedor-botones">
-                    <div class="guardar">
-                        <input type="submit" name="btnGuardar" id="btnGuardar"  value="Guardar" class="boton">
-                        <!--<a class="boton"  href="menu-principal.php">Guardar</a>-->
-                    </div>
-                    <div class="guardar">
-                        <input type="button" name="btnRegresar" id="btnRegresar" value="Regresar" class="boton">
-                        <!--<a class="boton" href="index.php">Regresar</a>-->
-                    </div>
+               
+                <div class="campo guardar w-100">
+                    <input type="submit" name="btnGuardar" id="btnGuardar"  value="Guardar" class="boton">
+                    <!--<a class="boton"  href="menu-principal.php">Guardar</a>-->
                 </div>
+                <div class="campo guardar w-100">
+                    <input type="button" name="btnRegresar" id="btnRegresar" value="Regresar" class="boton">
+                    <!--<a class="boton" href="index.php">Regresar</a>-->
+                </div>
+                
             </div>
         </form>
     </div>

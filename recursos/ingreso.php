@@ -10,7 +10,7 @@
         $nombre = $pase_db_array['nombre_user'];
         if(password_verify($pase,$pase_db)){
             session_start();
-            $_SESSION['usuario'] = $pase;
+            $_SESSION['usuario'] = $correo;
             mysqli_close($conn);
             echo "Bienvenido $nombre";
         }
