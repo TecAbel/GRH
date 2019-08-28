@@ -11,5 +11,7 @@
         $_SESSION['usuario'] = $usuario;
         $_SESSION['pase'] = $pase;
     }
-
+    function cerrarSesion(){
+        session_destroy();
+    }
 ?>

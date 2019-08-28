@@ -20,10 +20,65 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/default.min.css"/>
     <!--ajax-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
     <!-- google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Monoton|Paytone+One|Yellowtail&display=swap" rel="stylesheet">
+
+
     <title>GRH | Login</title>
 
+    <script>
+        $(document).ready(function(){
+            $('#btnRegistro').click(function(){
+                window.location= 'registro-usuario.php';
+            });
+            function validarForm(){
+                var validator = $("#formulario").validate({
+                    rules:{
+                        txtUsuario:{
+                            required: true,
+                            email:true
+                        },
+                        txtPass:{
+                            required: true
+                        }
+                    },
+                    messages:{
+                        txtUsuario:{
+                            required: "&#10060",
+                            email:"Ingrese un correo electrónico &#10060"
+                        },
+                        txtPass:{
+                            required: "&#10060"
+                        }
+                    }
+                });
+                if(validator.form()){
+                    $.ajax({
+                        url: "recursos/ingreso.php",
+                        type: "post",
+                        data: $("#formulario").serialize(),
+                        success: function(d){
+                            if(d==false){
+                                    alertify.error("Correo y contraseña incorrectos");
+                                }else{
+                                    
+                                    alertify.success(d);
+                                    setTimeout(function(){
+                                        location.href="menu-principal.php";
+                                    }, 2300);
+                                }
+                        }
+                    });
+                }
+            }
+
+            $("#btnEntrar").click(function(){
+                validarForm();
+            });
+        });
+    </script>
     
 </head>
 <body>
@@ -35,22 +90,16 @@
     <div class="contenedor">
         <h3>Inicie sesión</h3>
         <p class="eslogan">Tu mejor manera de cobrar</p>
-        <form method="POST">
-        <script>
-            $(document).ready(function(){
-                $('#btnRegistro').click(function(){
-                    window.location= 'registro-usuario.php';
-                });
-            });
-        </script>
+        <form method="post" id="formulario" onsubmit="javascript:return false;">
+        
             <div class="contenedor-campos">
                 <div class="campo w-100">
                     <label for="txtUsuario">Usuario: </label>
-                    <input type="email" placeholder="ejemplo@mail.com" id="txtUsuario" name="txtUsuario" required>
+                    <input type="email" placeholder="ejemplo@mail.com" id="txtUsuario" name="txtUsuario" >
                 </div>
                 <div class="campo w-100">
                     <label for="txtPass">Contraseña: </label>
-                    <input type="password" id="txtPass" name="txtPass" required>
+                    <input type="password" id="txtPass" name="txtPass">
                 </div>
                 <div class="contenedor-botones">
                     <div class="guardar">
