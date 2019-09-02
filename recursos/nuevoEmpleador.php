@@ -1,12 +1,18 @@
 <?php
     include("sql.php");
+    include('peticiones.php');
+    session_start();
+    $usuario = $_SESSION['usuario'];
+    $num_uArray = getUserid($usuario);
+    $numUsuario = $num_uArray['num_usuario'];
     $nombreEmpleador = $_POST['txtNombreEmpleador'];
     $nombreEmpresa = $_POST['txtEmpresaEmpleador'];
     $correoEmpleador = $_POST['txtCorreoEmpleador'];
     $telEmpleador = $_POST['txtTelEmpleador'];
+    $numEmpleado = $_POST['txtNumEmp'];
     $rfcEmpleador = $_POST['txtRfcEmpleador'];
     $msg = '';
-    $sql = "INSERT INTO empleadores(nombre_emp,correo_emp,tel_emp,rfc_emp,nombre_emp_emp) VALUES ('$nombreEmpleador','$correoEmpleador','$telEmpleador','$rfcEmpleador','$nombreEmpresa');";
+    $sql = "INSERT INTO empleadores(num_usuario,nombre_emp,nombre_emp_emp,correo_emp,tel_emp,num_empleado,rfc_emp) VALUES ('$numUsuario','$nombreEmpleador','$nombreEmpresa','$correoEmpleador','$telEmpleador','$numEmpleado','$rfcEmpleador');";
     if($conn->query($sql)){
         mysqli_close($conn);
         $msg = true;

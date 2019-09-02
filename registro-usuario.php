@@ -160,8 +160,7 @@
                 </div>
                 <div class="campo">
                     <label for="txtTelefono">Teléfono: </label>
-                    <input type="tel" placeholder="10 dígitos" id="txtTelefono" name="txtTelefono" maxlength="10" pattern="[0-9]">
-                    <span class="estado"></span>
+                    <input type="tel" placeholder="10 dígitos" id="txtTelefono" name="txtTelefono" maxlength="10">
                 </div>
                 
                 <div class="campo">

@@ -42,7 +42,7 @@
                 location.href = "menu-principal.php";
             });
             $("#txtNumero").val('<?php echo $datosPersonales['numero'] ?>');
-            $("#txtNumeroEmpleado").val('<?php echo $datosPersonales['num_empleado'] ?>');
+            /*$("#txtNumeroEmpleado").val('<?php echo $datosPersonales['num_empleado'] ?>');*/
             $("#txtRfc").val('<?php echo $datosPersonales['rfc'] ?>');
             
             function validarForm(){
@@ -120,7 +120,7 @@
                     Aquí podrás ver tus datos personales y editar algunos, excepto correo y tu nombre como se te notificó en el momento en el que te registraste.
                 </p>
                 
-                <p>Propietario: <strong><?php echo  $datosPersonales['nombre_user'] ?>.</strong></p>
+                <p>Propietario: <strong><?php echo  $datosPersonales['nombre_user'] ?></strong>.</p>
                 <div class="campo">
                     <p>Correo: <strong><?php echo $usuario?></strong></p>
                 </div>
@@ -128,11 +128,11 @@
                     <label for="txtNumero">Teléfono: </label>
                     <input class="obligatorio" type="text" id="txtNumero" name="txtNumero" pattern="[0-9]{10}">
                 </div>
-                <div class="campo">
+                <!--<div class="campo">
                     <label for="txtNumeroEmpleado">Número de empleado: </label>
                     <input type="text" id="txtNumeroEmpleado" name="txtNumeroEmpleado">
-                </div>
-                <div class="campo w-100">
+                </div>-->
+                <div class="campo ">
                     <label for="txtRfc">RFC: </label>
                     <input type="text" id="txtRfc" style="text-transform:uppercase;" name="txtRfc">
                 </div>
