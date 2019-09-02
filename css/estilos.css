@@ -76,6 +76,17 @@ input:valid + span::after{
     font-size: 2.5rem;
     text-align:center;
 }
+.error-msg{
+    margin-left: 5px;
+    padding-left: 5px;
+    color:red;
+}
+.nota-amarilla{
+    color: var(--enfasis);
+}
+input.obligatorio{
+    border-bottom: solid 2px var(--enfasis) !important;
+}
 .fondo-login{
     background-image: url(../img/trade.jpg);
     background-size: 100% 100%;

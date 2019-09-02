@@ -61,14 +61,14 @@
                     },
                     messages:{
                         txtNumero:{
-                            required: "&#10060",
-                            number: "Solo números &#10060",
-                            minlength: "Mínimo 8 dígitos &#10060",
-                            maxlength: "Máximo 10 dígitos &#10060"
+                            required: "<i class='fas fa-times error-msg'></i>",
+                            number: "Solo números <i class='fas fa-times error-msg'></i>",
+                            minlength: "Mínimo 8 dígitos <i class='fas fa-times error-msg'></i>",
+                            maxlength: "Máximo 10 dígitos <i class='fas fa-times error-msg'></i>"
                         },
                         txtRfc:{
-                            maxlength: "Máximo 13 &#10060",
-                            minlength: "Mínimo 13 &#10060"
+                            maxlength: "Máximo 13 <i class='fas fa-times error-msg'></i>",
+                            minlength: "Mínimo 13 <i class='fas fa-times error-msg'></i>"
                         } 
                     }
                 });
@@ -119,22 +119,26 @@
                 <p class="importante">
                     Aquí podrás ver tus datos personales y editar algunos, excepto correo y tu nombre como se te notificó en el momento en el que te registraste.
                 </p>
+                
                 <p>Propietario: <strong><?php echo  $datosPersonales['nombre_user'] ?>.</strong></p>
                 <div class="campo">
                     <p>Correo: <strong><?php echo $usuario?></strong></p>
                 </div>
                 <div class="campo">
-                    <label for="txtNumero">Numero: </label>
-                    <input type="text" id="txtNumero" name="txtNumero" pattern="[0-9]{10}">
+                    <label for="txtNumero">Teléfono: </label>
+                    <input class="obligatorio" type="text" id="txtNumero" name="txtNumero" pattern="[0-9]{10}">
                 </div>
                 <div class="campo">
-                    <label for="txtNumeroEmpleado">Numero de empleado: </label>
+                    <label for="txtNumeroEmpleado">Número de empleado: </label>
                     <input type="text" id="txtNumeroEmpleado" name="txtNumeroEmpleado">
                 </div>
                 <div class="campo w-100">
                     <label for="txtRfc">RFC: </label>
                     <input type="text" id="txtRfc" style="text-transform:uppercase;" name="txtRfc">
                 </div>
+                <p class="importante">
+                    Los campos de <span class="nota-amarilla"><strong>línea amarilla</span> son obligatorios.</strong> 
+                </p>
                 <div class="campo guardar w-100">
                     <input class="boton" id="btnEditar" name="btnEditar" type="submit" value="Editar">
                 </div>

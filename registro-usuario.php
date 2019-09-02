@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/estilos.css">
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Monoton|Paytone+One|Yellowtail&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
-    <!-- JavaScript -->
-    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/alertify.min.js"></script>
+     <!-- JavaScript -->
+     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/alertify.min.js"></script>
 
     <!-- CSS alertify -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/alertify.min.css"/>
@@ -23,6 +23,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.4.4.min.js"></script>
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
+    <!-- google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Monoton|Paytone+One|Yellowtail&display=swap" rel="stylesheet">
     <title>GRH | Registro de usuario</title>
     <script>
         $(document).ready(function(){
@@ -33,10 +35,12 @@
                 var validator = $("#formulario").validate({
                     rules:{
                         txtCorreo: {
-                            required: true
+                            required: true,
+                            email: true
                         },
                         txtCorreo1:{
                             required:true,
+                            email: true,
                             equalTo: "#txtCorreo"
                         },
                         txtNombre: {
@@ -58,27 +62,29 @@
                     },
                     messages:{
                         txtCorreo:{
-                            required: "&#10060"
+                            required: "<i class='fas fa-times error-msg'></i>",
+                            email: "Ingrese un correo <i class='fas fa-times error-msg'></i>"
                         },
                         txtCorreo1:{
-                            required: "&#10060",
-                            equalTo: "El correo no coincide &#10060"
+                            required: "<i class='fas fa-times error-msg'></i",
+                            email: "Ingrese un correo <i class='fas fa-times error-msg'></i>",
+                            equalTo: "El correo no coincide <i class='fas fa-times error-msg'></i>"
                         },
                         txtNombre:{
-                            required: "&#10060"
+                            required: "<i class='fas fa-times error-msg'></i>"
                         },
                         txtTelefono:{
-                            required: "&#10060",
-                            number: "Solo números &#10060",
-                            minlength: "Mínimo 8 dígitos &#10060",
-                            maxlength: "Máximo 10 dígitos &#10060"                  
+                            required: "<i class='fas fa-times error-msg'></i>",
+                            number: "Solo números <i class='fas fa-times error-msg'></i>",
+                            minlength: "Mínimo 8 dígitos <i class='fas fa-times error-msg'></i>",
+                            maxlength: "Máximo 10 dígitos <i class='fas fa-times error-msg'></i>"                  
                         },
                         txtPass:{
-                            required: "&#10060"
+                            required: "<i class='fas fa-times error-msg'></i>"
                         },
                         txtPass1:{
-                            required: "&#10060",
-                            equalTo: "Las contraseñas no coinciden &#10060"
+                            required: "<i class='fas fa-times error-msg'></i>",
+                            equalTo: "Las contraseñas no coinciden <i class='fas fa-times error-msg'></i>"
                         }
                     }
                 });
@@ -142,11 +148,11 @@
             <div class="contenedor-campos">
                 <div class="campo">
                     <label for="txtCorreo">Correo: </label>
-                    <input type="email" placeholder="ejemplo@dominio.com" id="txtCorreo" name="txtCorreo">
+                    <input type="text" placeholder="ejemplo@dominio.com" id="txtCorreo" name="txtCorreo">
                 </div>
                 <div class="campo">
                     <label for="txtCorreo1">Confirma correo: </label>
-                    <input type="email" placeholder="ejemplo@dominio.com" id="txtCorreo1" name="txtCorreo1" >
+                    <input type="text" placeholder="ejemplo@dominio.com" id="txtCorreo1" name="txtCorreo1" >
                 </div>
                 <div class="campo">
                     <label for="txtNombre">Nombre: </label>

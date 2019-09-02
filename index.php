@@ -45,11 +45,11 @@
                     },
                     messages:{
                         txtUsuario:{
-                            required: "&#10060",
-                            email:"Ingrese un correo electrónico &#10060"
+                            required: "<i class='fas fa-times error-msg'></i>",
+                            email:"Ingrese un correo electrónico <i class='fas fa-times error-msg'></i>"
                         },
                         txtPass:{
-                            required: "&#10060"
+                            required: "<i class='fas fa-times error-msg'></i>"
                         }
                     }
                 });
