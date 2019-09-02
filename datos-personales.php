@@ -139,7 +139,7 @@
                     <input class="boton" id="btnEditar" name="btnEditar" type="submit" value="Editar">
                 </div>
                 <div class="campo guardar w-100">
-                    <input class="boton" id="btnRegresar" name="btnRegresar" type="button" value="Regresar">
+                    <input class="boton" id="btnRegresar" name="btnRegresar" type="button" value="Menú principal">
                 </div>                   
             </div>
         </div>

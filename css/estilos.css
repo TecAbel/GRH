@@ -48,7 +48,8 @@ img{
     width: 100%;
 }
 input{
-    border-radius: .3rem;
+    border: none;
+    border-bottom: solid 2px #13547a;
 }
 textarea{
     border-radius: .3rem;
@@ -178,6 +179,8 @@ input:valid + span::after{
     font-size: 2rem;
     border-radius: .8rem;
     padding: .7rem;
+    border: none;
+    transition: .5s all;
 }
 
 .boton:hover{
@@ -186,6 +189,7 @@ input:valid + span::after{
 }
 .contenedor-botones{
     margin: 0 auto;
+    margin-top: 20px;
     width: 80%;
     display: flex ;
     justify-content: space-around;
@@ -224,6 +228,13 @@ a {
     align-items: center;/*vertical*/
     font-size: 3rem;  
 }
+.icono button{
+    color: black;
+    transition: .5s;
+}
+.icono button:hover{
+    color: #13547a;
+}
 
 .menu-boton{
     background-color: transparent;
@@ -247,4 +258,14 @@ a {
 
 footer p{
     text-align: center;    
+}
+
+.campo a{
+    text-decoration: none;
+    color: var(--primario);
+}
+.campo p{
+    font-size: 1.6rem;
+    padding-top: 20px;
+    margin: 0 auto;
 }

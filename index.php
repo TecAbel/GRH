@@ -92,21 +92,23 @@
         <form method="post" id="formulario" onsubmit="javascript:return false;">
         
             <div class="contenedor-campos">
-                <div class="campo w-100">
-                    <label for="txtUsuario">Correo: </label>
-                    <input type="email" placeholder="ejemplo@mail.com" id="txtUsuario" name="txtUsuario" >
+                <div class="campo w-100 animado">
+                    
+                    <input type="email" placeholder="Correo" id="txtUsuario" name="txtUsuario" >
                 </div>
-                <div class="campo w-100">
-                    <label for="txtPass">Contraseña: </label>
-                    <input type="password" id="txtPass" name="txtPass">
+                <div class="campo w-100 animado">
+                    <!--<label for="txtPass">Contraseña: </label>-->
+                    <input type="password" id="txtPass" placeholder="Contraseña" name="txtPass">
+                    
                 </div>
                 
                 <div class="campo guardar w-100">
                     <input type="submit" name="btnEntrar" id="btnEntrar" value="Entrar" class="boton">
                     <!--<a class="boton" href="menu-principal.php">Entrar</a>-->
                 </div>
-                <div class="campo guardar w-100">
-                    <input type="button" name="btnRegistro" id="btnRegistro"  value="Regístrate" class="boton">
+                <div class="campo w-100">
+                    <!--<input type="button" name="btnRegistro" id="btnRegistro"  value="Regístrate" class="boton">-->
+                    <p>¿Aún no tienes una cuenta? <a href="registro-usuario.php"  rel="noopener noreferrer">Regístrate</a></p>
                 </div>
                 
             </div>

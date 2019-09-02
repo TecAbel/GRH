@@ -167,11 +167,11 @@
                     <input type="password" id="txtPass1" name="txtPass1">
                 </div>
                 <div class="importante">
-                    <p>Tu información solo será usada únicamente con el objetivo principal de GRH &copy, el cual es ayudarte a generar tus reportes de cobro.</p>
+                    <p>Tu información será usada únicamente con el objetivo principal de GRH &copy, el cual es ayudarte a generar tus reportes de cobro.</p>
                 </div>
                
                 <div class="campo guardar w-100">
-                    <input type="submit" name="btnGuardar" id="btnGuardar"  value="Guardar" class="boton">
+                    <input type="submit" name="btnGuardar" id="btnGuardar"  value="Registrarme" class="boton">
                     <!--<a class="boton"  href="menu-principal.php">Guardar</a>-->
                 </div>
                 <div class="campo guardar w-100">
