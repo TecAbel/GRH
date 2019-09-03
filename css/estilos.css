@@ -117,9 +117,7 @@ table.empleadores{
     color: #000;
 }
 
-.popup .contenedor-campos{
-    /*opacity: 0;*/
-}
+
 .popup.active{
     opacity: 1;
     transform: scale(1);

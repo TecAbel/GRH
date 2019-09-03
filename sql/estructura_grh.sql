@@ -27,7 +27,7 @@ CREATE TABLE actividades(
 CREATE TABLE empleadores(
 	num_emp int(8) NOT NULL UNIQUE auto_increment,
     PRIMARY KEY(num_emp),
-    num_usuario int(8) NOT NULL UNIQUE,
+    num_usuario int(8) NOT NULL,
     nombre_emp CHAR(40) NOT NULL,
     nombre_emp_emp VARCHAR(50), 
     correo_emp char(40),
