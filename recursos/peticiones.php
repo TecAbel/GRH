@@ -27,4 +27,24 @@
         return $texto;
         mysqli_close();
     }
+    function getEmpleadores($numU){
+        include('sql.php');
+        $texto='';
+        $sql = "SELECT nombre_emp,nombre_emp_emp, tel_emp FROM empleadores WHERE num_usuario = '$numU';";
+        $resultado = $conn->query($sql);
+        while ($filas_emp = $resultado->fetch_assoc()) {
+            $texto= $texto.  "
+            <tr>
+                <td colspan='4'><i class='fas fa-user-circle usuario-tb'></i></td>
+            <tr>
+            <tr>
+                <td>".$filas_emp['nombre_emp'] . "</td>
+                <td>" .$filas_emp['nombre_emp_emp'] . "</td>
+                <td>" .$filas_emp['tel_emp'] . "</td>
+                <td><button class='boton'><i class='fas fa-edit '></i></button></td>
+            </tr>";
+        }
+        return $texto;        
+        mysqli_close();
+    }
 ?>

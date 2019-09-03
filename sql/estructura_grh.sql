@@ -34,6 +34,7 @@ CREATE TABLE empleadores(
     tel_emp char(10),
     num_empleado char(20),
     rfc_emp char(13),
+    cuota double,
     FOREIGN KEY (num_usuario) REFERENCES usuarios(num_usuario)
 )CHARACTER SET 'UTF8' COLLATE 'utf8_general_ci';
 

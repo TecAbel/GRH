@@ -1,11 +1,12 @@
 <?php
     include('recursos\repetitivo.php');
-    include('recursos\validaciones.php');
-   
-    
+    include('recursos\validaciones.php');   
+    include('recursos\peticiones.php');
     $usuario = $_SESSION['usuario'];
     
     validarInicio($usuario);
+    $user_Array = getUserid($usuario);
+    $userU =  $user_Array['num_usuario'];
 ?>
 
 <!DOCTYPE html>
@@ -56,11 +57,19 @@
                         txtRfcEmpleador:{
                             maxlength: 13,
                             minlength: 13
+                        },
+                        txtCuota:{
+                            required: true,
+                            digits:true
                         }
                     },
                     messages:{
                         txtNombreEmpleador:{
                             required: "<i class='fas fa-times error-msg'></i>"
+                        },
+                        txtCuota:{
+                            required: "<i class='fas fa-times error-msg'></i>",
+                            digits:"Solo números <i class='fas fa-times error-msg'></i>"
                         }
                     }
                 });
@@ -73,8 +82,8 @@
                             if(d==true){
                                 alertify.message("Empleador registrado");
                                 setTimeout(function(){
-                                        $(":text").val('');
-                                    }, 1500);
+                                        location.reload();
+                                    }, 1000);
                             }
                             /*alert(d);*/
                         }
@@ -91,14 +100,14 @@
 <body>
     <div class="hero">
         <div class="contenedor-hero">
-            <h1>Empleadores</h1>
+            <h1 id="titulo" class="">Empleadores</h1>
         </div>
     </div>
     
         <div class="contenedor">
             <p class="eslogan">Tu mejor manera de cobrar</p>
             <p class="importante">
-                Aquí se va a registrar únicamente los <strong>datos del pmpleador</strong>, que te servirán para llevar un control de su información de contacto que usaremos para generar tu reporte de cobro.                
+                Aquí se va a registrar únicamente los <strong>datos del empleador</strong>, que servirán para llevar un control de su información de contacto que usaremos para generar tu reporte de cobro.                
             </p>
 
             <table class="empleadores">
@@ -109,7 +118,7 @@
                 <thead>
                     <th colspan="4">Empleadores registrados</th>
                 </thead>
-                <tr>
+                <!--<tr>
                     <td colspan="4"><i class="fas fa-user-circle usuario-tb"></i></td>
                 <tr>
                     <td>Carlos Enrique Sosa Dávalos</td>
@@ -124,7 +133,10 @@
                     <td>Grupo Columbia</td>
                     <td>5522113344</td>
                     <td><button class="boton"><i class="fas fa-edit "></i></button></td>
-                </tr>
+                </tr>-->
+                <?php
+                    echo getEmpleadores($userU);
+                ?>
             </table>
             <div class="campo guardar w-100">
                 <input class="boton" id="btnRegresar" name="btnRegresar" type="button" value="Menú principal">
@@ -155,9 +167,13 @@
                                 <label for="txtNumEmp">Número de empleado: </label>
                                 <input type="text" id="txtNumEmp" name="txtNumEmp">
                             </div>
-                            <div class="campo w-100">
+                            <div class="campo">
                                 <label for="txtRfcEmpleador">RFC: </label>
                                 <input type="text" id="txtRfcEmpleador" name="txtRfcEmpleador">
+                            </div>
+                            <div class="campo">
+                                <label for="txtCuota">Cuota/h: $</label>
+                                <input class="obligatorio" type="text" step="0.01" id="txtCuota" name="txtCuota">
                             </div>
                             <p class="importante">
                             Los campos de <span class="nota-amarilla"><strong>línea amarilla</span> son obligatorios.</strong> 

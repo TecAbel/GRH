@@ -36,7 +36,7 @@ h1{
     text-align: center;
     text-transform: uppercase;
     color: var(--blanco);
-    
+    position: relative;
 }
 h3{
     font-family: var(--fuenteTitulos);
@@ -77,6 +77,10 @@ table.empleadores{
     border-collapse: separate;
     border-spacing: 10px 20px;
     text-align: center;
+}
+
+.oculto{
+    display: none;
 }
 
 .overlay{
@@ -120,7 +124,7 @@ table.empleadores{
 
 .popup.active{
     opacity: 1;
-    transform: scale(1);
+    transform: scale(.99);
 }
 .popup .contenedor-campos.active{
     opacity: 1;
