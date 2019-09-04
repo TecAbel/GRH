@@ -74,7 +74,7 @@
                 });
 
                 if(validator.form()){
-                    alertify.confirm('Se require confrimación','¿Está seguro de realizar estos cambios?',
+                    alertify.confirm('Se require confirmación','¿Está seguro de realizar estos cambios?',
                     function(){
                         $.ajax({
                             url: "recursos/config-datos-personales.php",
@@ -119,11 +119,9 @@
                 <p class="importante">
                     Aquí podrás ver tus datos personales y editar algunos, excepto correo y tu nombre como se te notificó en el momento en el que te registraste.
                 </p>
-                
                 <p>Propietario: <strong><?php echo  $datosPersonales['nombre_user'] ?></strong>.</p>
-                <div class="campo">
-                    <p>Correo: <strong><?php echo $usuario?></strong></p>
-                </div>
+                <p>Correo: <strong><?php echo $usuario?></strong></p>
+                <br>
                 <div class="campo">
                     <label for="txtNumero">Teléfono: </label>
                     <input class="obligatorio" type="text" id="txtNumero" name="txtNumero" pattern="[0-9]{10}">

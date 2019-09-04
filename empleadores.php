@@ -125,14 +125,6 @@
                     <td>Grupo Columbia</td>
                     <td>5522113344</td>
                     <td><button class="boton"><i class="fas fa-edit "></i></button></td>
-                </tr>
-                <tr>
-                    <td colspan="4"><i class="fas fa-user-circle usuario-tb"></i></td>
-                <tr>
-                    <td>Carlos Enrique Sosa Dávalos</td>
-                    <td>Grupo Columbia</td>
-                    <td>5522113344</td>
-                    <td><button class="boton"><i class="fas fa-edit "></i></button></td>
                 </tr>-->
                 <?php
                     echo getEmpleadores($userU);
