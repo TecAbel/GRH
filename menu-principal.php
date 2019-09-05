@@ -45,6 +45,9 @@
             $('#btnReportes').click(function(){
                 window.location= 'reportes.php';
             });
+            $('#btnActividades').click(function(){
+                window.location= 'actividades.php';
+            });
 
             function cerrarSesion(){
                 $.ajax({
@@ -92,6 +95,12 @@
                     <h3>Empleadores / jefes</h3>
                     <div class="icono">
                         <button class="menu-boton" id="btnEmpleadores"><i class="fas fa-briefcase"></i></button>
+                    </div>
+                </div>
+                <div class="seccion">
+                    <h3>Actividades</h3>
+                    <div class="icono">
+                        <button class="menu-boton" id="btnActividades"><i class="far fa-check-square"></i></button>
                     </div>
                 </div>
                 <div class="seccion">

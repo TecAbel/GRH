@@ -112,11 +112,16 @@
 
             <table class="empleadores">
                 <thead>
-                    <th colspan="3">Nuevo empleador</th>
+                    <th colspan="2">Nuevo empleador</th>
                     <th><button class="boton" id="btn-abrir-popup"><i class="fas fa-user-plus"></i></button></th>
                 </thead>
                 <thead>
-                    <th colspan="4">Empleadores registrados</th>
+                    <th colspan="3">Empleadores registrados</th>
+                </thead>
+                <thead>
+                    <th>Empleador</th>
+                    <th>Empresa</th>
+                    <th>Ver / editar</th>
                 </thead>
                 <!--<tr>
                     <td colspan="4"><i class="fas fa-user-circle usuario-tb"></i></td>
@@ -179,10 +184,10 @@
                 </div>
             </div>
         </div>
-
+        
    
 
     <?php echo getFooter();  ?>
-    <script src="recursos\formEmergenteEmpeladores.js"></script>
+    <script src="recursos\formEmergente.js"></script>
 </body>
 </html>

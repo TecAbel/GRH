@@ -40,7 +40,7 @@
             <tr>
                 <td>".$filas_emp['nombre_emp'] . "</td>
                 <td>" .$filas_emp['nombre_emp_emp'] . "</td>
-                <td>" .$filas_emp['tel_emp'] . "</td>
+                
                 <td><a href='datos-empleadores.php?XQR=".$filas_emp['num_emp']."'< class='boton'><i class='fas fa-edit'></i></a></td>
             </tr>";
         }

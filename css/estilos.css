@@ -47,13 +47,11 @@ h3{
 img{
     width: 100%;
 }
-input{
+input, select ,textarea{
     border: none;
     border-bottom: solid 2px #13547a;
 }
-textarea{
-    border-radius: .3rem;
-}
+
 header{
     color: var(--primario);
 }
@@ -76,6 +74,13 @@ table.empleadores{
     width: 100%;
     border-collapse: separate;
     border-spacing: 10px 20px;
+    text-align: center;
+}
+table.actividades{
+    margin: 0 auto;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 5px 20px;
     text-align: center;
 }
 
@@ -245,7 +250,7 @@ input.obligatorio{
     flex: 0 0 9rem;
     margin-right: 1rem;
 }
-.campo input{
+.campo input, .campo select{
     flex: 1;
     height: 4rem;
 }
