@@ -5,6 +5,9 @@
     $usuario = $_SESSION['usuario'];
     
     validarInicio($usuario);
+    $numU_array = getUserid($usuario);
+    $numU = $numU_array['num_usuario'];
+    
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +36,67 @@
     <!-- google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Monoton|Paytone+One|Yellowtail&display=swap" rel="stylesheet">
 
+
+    <script>
+        $(document).ready(function(){
+            $("#btnRegresar").click(function(){
+                location.href = "menu-principal.php";
+            });
+            function validarForm(){
+                var validator = $("#frmActividadNueva").validate({
+                    rules:{
+                        txtFecha:{
+                            required: true
+                        },
+                        txtInicio:{
+                            required: true
+                        },
+                        txtFin:{
+                            required: true
+                        },
+                        txtActividad:{
+                            required: true
+                        },
+                        txtTransporte:{
+                            number: true,
+                            min:1
+                        }
+                    },
+                    messages:{
+                        txtFecha:{
+                            required:"<i class='fas fa-times error-msg'></i>"
+                        },
+                        txtInicio:{
+                            required: "<i class='fas fa-times error-msg'></i>"
+                        },
+                        txtFin:{
+                            required: "<i class='fas fa-times error-msg'></i>"
+                        },
+                        txtActividad:{
+                            required: "<i class='fas fa-times error-msg'></i>"
+                        },
+                        txtTransporte:{
+                            number: "Solo números <i class='fas fa-times error-msg'></i>",
+                            min: "Si no hay gasto en transporte borre este campo <i class='fas fa-times error-msg'></i>"
+                        }
+                    }
+                });
+                if(validator.form()){
+                    $.ajax({
+                        url: "recursos/nueva-actividad.php",
+                        type: "post",
+                        data: $("#frmActividadNueva").serialize(),
+                        success: function(d){
+                            alert(d);
+                        }
+                    });
+                }
+            }
+            $("#btnRegistrar").click(function(){
+                validarForm();
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="hero">
@@ -68,27 +132,30 @@
                 <td><a href="#" class='boton'><i class='fas fa-edit'></i></a></td>
             </tr>
         </table>
+        <div class="campo guardar w-100">
+            <input class="boton" id="btnRegresar" name="btnRegresar" type="button" value="Menú principal">
+        </div>
         <div class="overlay" id="overlay">
             <div class="popup" id="popup">
                 <div class="contenedor-campos">
-                    <form id="frmActividadNueva" method="post" onsubmit=javascript:return false;">
+                    <form id="frmActividadNueva" method="post" onsubmit="javascript:return false;">
                         <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class='fas fa-times'></i></a>
                         <div class="campo">
                             <label for="txtFecha">Fecha: </label>
                             <input class="obligatorio" type="date" id="txtFecha" name="txtFecha">
                         </div>
                         <div class="campo">
-                            <label for="txtFecha">Inició: </label>
-                            <input class="obligatorio" type="time" id="txtFecha" name="txtFecha">
+                            <label for="txtInicio">Inició: </label>
+                            <input class="obligatorio" type="time" id="txtInicio" name="txtInicio">
                         </div>
                         <div class="campo">
-                            <label for="txtFecha">Terminó: </label>
-                            <input class="obligatorio" type="time" id="txtFecha" name="txtFecha">
+                            <label for="txtFin">Terminó: </label>
+                            <input class="obligatorio" type="time" id="txtFin" name="txtFin">
                         </div>
                         <div class="campo">
                             <label for="txtEmpleador">Empleador: </label>
                             <select class="obligatorio" name="txtEmpleador" id="txtEmpleador">
-                                <option value="Carlos">Carlos Sosa</option>
+                                <?php echo getEmpleadoresSelect($numU); ?>
                             </select>
                         </div>
                         <div class="campo">
@@ -101,10 +168,10 @@
                         </div>
                         <div class="campo">
                             <label for="txtTransporte">Transporte: $</label>
-                            <input type="number" step="00.01" min="1">
+                            <input type="number" step="00.01" min="1" id="txtTransporte" name="txtTransporte">
                         </div>
                         <div class="campo">
-                            <input type="submit" class="boton" value="Registrar actividad">
+                            <input type="submit" class="boton"  name="btnRegistrar" id="btnRegistrar" value="Registrar actividad">
                         </div>
                     </form>
                 </div>

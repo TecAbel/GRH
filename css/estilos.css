@@ -114,12 +114,13 @@ table.actividades{
 }
 
 .popup .btn-cerrar-popup{
-    font-size: 1.6rem;
+    font-size: 2rem;
     line-height: 1.6rem;
     display: block;
     text-align: right;
     color: #bbbbbb;
     transition: .3s ease all;
+    margin-bottom: 5px;
 }
 
 .popup .btn-cerrar-popup:hover{

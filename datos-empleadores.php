@@ -155,7 +155,7 @@
                 </div>
                 <div class="campo">
                     <label for="txtCuota">Cuota/h: $</label>
-                    <input class="obligatorio" type="text" step="0.01" id="txtCuota" name="txtCuota">
+                    <input class="obligatorio" type="number" step="0.01" id="txtCuota" name="txtCuota">
                 </div>
                 <div class="campo w-100">
                     <p class="importante">

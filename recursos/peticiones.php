@@ -61,4 +61,17 @@
         return $texto;
         mysqli_close();
     }
+    function getEmpleadoresSelect($numU){
+        include('sql.php');
+        $texto='';
+        $sql = "SELECT num_emp,nombre_emp FROM empleadores WHERE num_usuario = '$numU' order by nombre_emp;";
+        $resultado = $conn->query($sql);
+        while ($filas_emp = $resultado->fetch_assoc()) {
+            $texto = $texto . "
+                <option value='" . $filas_emp['num_emp'] . "'>".  $filas_emp['nombre_emp'] ."</option>
+            ";
+        }
+        return $texto;
+        mysqli_close();
+    }
 ?>
