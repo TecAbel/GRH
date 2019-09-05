@@ -48,8 +48,69 @@
             $("#txtCorreoEmpleador").val('<?php echo $datosEmpleador['correo_emp'] ?>');
             $("#txtTelEmpleador").val('<?php echo $datosEmpleador['tel_emp'] ?>');
             $("#txtRfcEmpleador").val('<?php echo $datosEmpleador['rfc_emp'] ?>');
-            $("#txtNumEmp").val('<?php echo $datosEmpleador['num_emp'] ?>');
+            $("#txtNumEmp").val('<?php echo $datosEmpleador['num_empleado'] ?>');
             $("#txtCuota").val('<?php echo $datosEmpleador['cuota'] ?>');
+            function validarForm(){
+                var validator = $("#formulario").validate({
+                    rules:{
+                        txtNombreEmpleador:{
+                            required: true,
+                        },
+                        txtCorreoEmpleador:{
+                            email: true
+                        },
+                        txtTelEmpleador:{
+                            number:true,
+                            minlength: 8,
+                            maxlength:10
+                        },
+                        txtRfcEmpleador:{
+                            maxlength: 13,
+                            minlength: 13
+                        },
+                        txtCuota:{
+                            required: true,
+                            digits:true
+                        }
+                    },
+                    messages:{
+                        txtNombreEmpleador:{
+                            required: "<i class='fas fa-times error-msg'></i>"
+                        },
+                        txtCuota:{
+                            required: "<i class='fas fa-times error-msg'></i>",
+                            digits:"Solo números <i class='fas fa-times error-msg'></i>"
+                        }
+                    }
+                });
+                if(validator.form()){
+                    alertify.confirm('Se requiere confirmación','¿Está seguro de realizar estos cambios?',
+                    function(){
+                        $.ajax({
+                            url: "recursos/config-empleador.php?XQR=<?php echo $empleador ?>",
+                            type: "post",
+                            data: $("#formulario").serialize(),
+                            success: function(d){
+                                if(d==true){
+                                    alertify.message("Trabajando...");
+                                    setTimeout(function(){
+                                        location.reload();
+                                    }, 1500);
+                                }
+                                else{
+                                    alertify.error(d);
+                                }
+                            }
+                        });
+                    },
+                    function(){
+                        alertify.error('Acción cancelada')
+                    });
+                }
+            }
+            $("#btnEditar").click(function(){
+                validarForm();
+            });
         });
     </script> 
 </head>
@@ -61,51 +122,55 @@
         
     </div> 
     <div class="contenedor">
+    <form action="" id="formulario" method="post" onsubmit="javascript:return false;">
         <p class="eslogan">Tu mejor manera de cobrar</p>
         <div class="contenedor-campos">
-            <p class="importante">
-                Aquí podrás actualizar o cambiar los datos que ingresaste de tu empleador. A pesar de que puedas editar el nombre y diversos elementos del empelador aquellos reportes que hayas hecho no cambiarán.
-            </p>
-            <div class="campo">
-                <label for="txtNombreEmpleador">Nombre del empleador: </label>
-                <input class="obligatorio" type="text" id="txtNombreEmpleador" name="txtNombreEmpleador">
-            </div>
-            <div class="campo">
-                <label for="txtEmpresaEmpleador">Nombre de la empresa: </label>
-                <input type="text" id="txtEmpresaEmpleador" name="txtEmpresaEmpleador">
-            </div>
-            <div class="campo">
-                <label for="txtCorreoEmpleador">Correo: </label>
-                <input type="text" id="txtCorreoEmpleador" name="txtCorreoEmpleador">
-            </div>
-            <div class="campo">
-                <label for="txtTelEmpleador">Teléfono: </label>
-                <input type="text" id="txtTelEmpleador" name="txtTelEmpleador">
-            </div>
-            <div class="campo w-100">
-                <label for="txtRfcEmpleador">RFC: </label>
-                <input type="text" id="txtRfcEmpleador" name="txtRfcEmpleador">
-            </div>
-            <div class="campo">
-                <label for="txtNumEmp">Número de empleado: </label>
-                <input type="text" id="txtNumEmp" name="txtNumEmp">
-            </div>
-            <div class="campo">
-                <label for="txtCuota">Cuota/h: $</label>
-                <input class="obligatorio" type="text" step="0.01" id="txtCuota" name="txtCuota">
-            </div>
-            <div class="campo w-100">
+            
                 <p class="importante">
-                Los campos de <span class="nota-amarilla"><strong>línea amarilla</span> son obligatorios.</strong> 
+                    Aquí podrás actualizar o cambiar los datos que ingresaste de tu empleador. A pesar de que puedas editar el nombre y diversos elementos del empelador aquellos reportes que hayas hecho no cambiarán.
                 </p>
-            </div>
-            <div class="campo guardar w-100">
-                <input class="boton" id="btnEditar" name="btnEditar" type="submit" value="Actualizar datos">
-            </div>
-            <div class="campo guardar w-100">
-                <input class="boton" id="btnRegresar" name="btnRegresar" type="submit" value="Regresar">
-            </div>
+                <div class="campo">
+                    <label for="txtNombreEmpleador">Nombre del empleador: </label>
+                    <input class="obligatorio" type="text" id="txtNombreEmpleador" name="txtNombreEmpleador">
+                </div>
+                <div class="campo">
+                    <label for="txtEmpresaEmpleador">Nombre de la empresa: </label>
+                    <input type="text" id="txtEmpresaEmpleador" name="txtEmpresaEmpleador">
+                </div>
+                <div class="campo">
+                    <label for="txtCorreoEmpleador">Correo: </label>
+                    <input type="text" id="txtCorreoEmpleador" name="txtCorreoEmpleador">
+                </div>
+                <div class="campo">
+                    <label for="txtTelEmpleador">Teléfono: </label>
+                    <input type="text" id="txtTelEmpleador" name="txtTelEmpleador">
+                </div>
+                <div class="campo w-100">
+                    <label for="txtRfcEmpleador">RFC: </label>
+                    <input type="text" id="txtRfcEmpleador" name="txtRfcEmpleador">
+                </div>
+                <div class="campo">
+                    <label for="txtNumEmp">Número de empleado: </label>
+                    <input type="text" id="txtNumEmp" name="txtNumEmp">
+                </div>
+                <div class="campo">
+                    <label for="txtCuota">Cuota/h: $</label>
+                    <input class="obligatorio" type="text" step="0.01" id="txtCuota" name="txtCuota">
+                </div>
+                <div class="campo w-100">
+                    <p class="importante">
+                    Los campos de <span class="nota-amarilla"><strong>línea amarilla</span> son obligatorios.</strong> 
+                    </p>
+                </div>
+                <div class="campo guardar w-100">
+                    <input class="boton" id="btnEditar" name="btnEditar" type="submit" value="Actualizar datos">
+                </div>
+                <div class="campo guardar w-100">
+                    <input class="boton" id="btnRegresar" name="btnRegresar" type="submit" value="Regresar">
+                </div>
+            
         </div>
+        </form>
     </div>
     <?php echo getFooter(); ?>
      
