@@ -81,7 +81,7 @@
     
 </head>
 <body>
-    <div class="hero">
+    <div class="hero-index">
         <div class="contenedor-hero">
             <h1>Generador de Reporte de Honorarios</h1>
         </div>
