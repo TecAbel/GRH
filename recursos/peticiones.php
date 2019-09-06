@@ -84,7 +84,7 @@
             }
         }else{
             $texto = "
-                <option>Sin empleadores</option>
+                <option value=''>Sin empleadores</option>
             ";
         }
         
@@ -116,7 +116,7 @@
         session_start();
         $correo = $_SESSION['usuario'];
         $texto='';
-        $sql = "SELECT calculos.fecha, empleadores.nombre_emp, actividades.nombre_act FROM calculos
+        $sql = "SELECT calculos.num_cal, calculos.fecha, empleadores.nombre_emp, actividades.nombre_act FROM calculos
         INNER JOIN empleadores ON calculos.num_emp = empleadores.num_emp
         INNER JOIN actividades ON calculos.num_actividad = actividades.num_actividad
         WHERE empleadores.num_usuario = (SELECT num_usuario FROM usuarios WHERE correo = '$correo')
@@ -130,7 +130,7 @@
                     <td>".$fila['fecha']."</td>
                     <td>".$fila['nombre_emp']."</td>
                     <td>".$fila['nombre_act']."</td>
-                <td><a href='#' class='boton'><i class='fas fa-edit'></i></a></td>
+                <td><a href='datos-actividades.php?RXQ=".$fila['num_cal']."' class='boton'><i class='fas fa-edit'></i></a></td>
             </tr>
                 ";
             }
@@ -141,6 +141,26 @@
             <tr>
             ";
         }
+        return $texto;
+        mysqli_close($conn);
+    }
+    function getDatosActividades($correo,$actividad){
+        include('sql.php');
+        $texto='';
+        $sql = "SELECT fecha, empleadores.nombre_emp,actividades.nombre_act, horas_tra,descripcion,transporte FROM calculos
+        INNER JOIN actividades ON calculos.num_actividad = actividades.num_actividad
+        INNER JOIN empleadores ON calculos.num_emp = empleadores.num_emp
+        WHERE (SELECT num_usuario FROM usuarios WHERE correo = '$correo') and calculos.num_cal='$actividad';";
+        $resultado = $conn->query($sql);
+        if(mysqli_num_rows($resultado)>0){
+            $texto = mysqli_fetch_assoc($resultado);
+        }else{
+            $texto = "
+                Hay un error con su usuario
+            ";
+        }
+        
+        
         return $texto;
         mysqli_close($conn);
     }

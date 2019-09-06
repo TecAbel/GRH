@@ -272,7 +272,9 @@ input.obligatorio{
     border: none;
     transition: .5s all;
 }
-
+.boton.eliminar{
+    background-color: rgb(236, 58, 58) !important;
+}
 .boton:hover{
     background: var(--secundario);
     color: var(--enfasis);

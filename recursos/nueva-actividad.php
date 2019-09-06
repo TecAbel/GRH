@@ -27,17 +27,23 @@
     ";
     $sqlCalculo = "INSERT INTO calculos(num_usuario,num_emp,num_actividad,fecha,hora_ent,hora_sal,horas_tra,descripcion,transporte)
     VALUES('$numU', '$numEmpleador',(SELECT num_actividad FROM actividades WHERE nombre_act = '$actividad'),'$fecha','$inicio', '$termino','$redondeo','$descripcion','$transporte');";
-    if($conn->query($sqlActividad)){
-        if($conn->query($sqlCalculo)){
-            $texto = true;
+    if($numEmpleador!=null){
+        if($conn->query($sqlActividad)){
+            if($conn->query($sqlCalculo)){
+                $texto = true;
+            }
+            else{
+                $texto = "Error : ". mysqli_error($conn);
+            }
         }
         else{
-            $texto = "Error : ". mysqli_error($conn);
+            $texto = "Error " . mysqli_error($conn);
         }
     }
     else{
-        $texto = "Error " . mysqli_error($conn);
+        $texto = "Error: Debe de existir un empleador";
     }
     echo $texto;
     mysqli_close($conn);
+    #print_r($_POST);
 ?>

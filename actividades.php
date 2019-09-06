@@ -82,22 +82,30 @@
                     }
                 });
                 if(validator.form()){
-                    $.ajax({
+                    alertify.confirm('Se requiere confirmación','¿La información es correcta? El registro de actividades no se podrá editar posteriormente, solo eliminar.',
+                    function(){
+                        $.ajax({
                         url: "recursos/nueva-actividad.php",
                         type: "post",
                         data: $("#frmActividadNueva").serialize(),
                         success: function(d){
-                            if(d==true){
-                                alertify.message("Registrando actividad");
-                                setTimeout(function(){
-                                        location.reload();
-                                    }, 1000);
-                            }else{
-                                alertify.error(d);
-                            }
+                                if(d==true){
+                                    alertify.message("Registrando actividad");
+                                    setTimeout(function(){
+                                            location.reload();
+                                        }, 1000);
+                                }else{
+                                    alertify.error(d);
+                                }
                             /*alert(d);*/
-                        }
-                    });
+                            }
+                        });
+                    },
+                    function(){
+                        alertify.error('Registro cancelado');
+                    }
+                    
+                    );
                 }
             }
             $("#btnRegistrar").click(function(){
