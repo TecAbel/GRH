@@ -12,4 +12,5 @@
     else{
         echo "Algo ha salido mal, verifica tu información.";
     }
+    mysqli_close($conn);
 ?>

@@ -15,12 +15,12 @@
     $msg = '';
     $sql = "INSERT INTO empleadores(num_usuario,nombre_emp,nombre_emp_emp,correo_emp,tel_emp,num_empleado,rfc_emp,cuota) VALUES ('$numUsuario','$nombreEmpleador','$nombreEmpresa','$correoEmpleador','$telEmpleador','$numEmpleado','$rfcEmpleador','$cuota');";
     if($conn->query($sql)){
-        mysqli_close($conn);
+        
         $msg = true;
     }else{
         $msg = mysqli_error();
     }
-
+    mysqli_close($conn);
     echo $msg;
     #print_r($_POST);
 ?>

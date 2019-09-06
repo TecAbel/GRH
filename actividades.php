@@ -7,7 +7,7 @@
     validarInicio($usuario);
     $numU_array = getUserid($usuario);
     $numU = $numU_array['num_usuario'];
-    
+    $actividadesReg = completarActividad($numU);
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +36,7 @@
     <!-- google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Monoton|Paytone+One|Yellowtail&display=swap" rel="stylesheet">
 
-
+    
     <script>
         $(document).ready(function(){
             $("#btnRegresar").click(function(){
@@ -87,7 +87,15 @@
                         type: "post",
                         data: $("#frmActividadNueva").serialize(),
                         success: function(d){
-                            alert(d);
+                            if(d==true){
+                                alertify.message("Registrando actividad");
+                                setTimeout(function(){
+                                        location.reload();
+                                    }, 1000);
+                            }else{
+                                alertify.error(d);
+                            }
+                            /*alert(d);*/
                         }
                     });
                 }
@@ -122,15 +130,11 @@
             <thead>
                 <th>Fecha</th>
                 <th>Empleador</th>
-                <th>Estado</th>
+                <th>Actividad</th>
                 <th>Ver / editar</th>
             </thead>
-            <tr>
-                <td>05/09/2019 </td>
-                <td>Carlos Sosa</td>
-                <td>Registrado <br>Por cobrar <br> cobrado</td>
-                <td><a href="#" class='boton'><i class='fas fa-edit'></i></a></td>
-            </tr>
+            
+            <?php echo getActividadesTabla() ?>
         </table>
         <div class="campo guardar w-100">
             <input class="boton" id="btnRegresar" name="btnRegresar" type="button" value="Menú principal">
@@ -160,7 +164,10 @@
                         </div>
                         <div class="campo">
                             <label for="txtActividad">Actividad: </label>
-                            <input class="obligatorio" type="text" name="txtActividad" id="txtActividad">
+                            <input class="obligatorio" type="text" name="txtActividad" list="actividadesRegistradas" id="txtActividad" autocomplete="off">
+                            <datalist id="actividadesRegistradas">
+                                <?php echo $actividadesReg ?>
+                            </datalist>
                         </div>
                         <div class="campo">
                             <label for="txtActDetalle">Detalle: </label>

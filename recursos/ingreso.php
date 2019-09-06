@@ -11,7 +11,7 @@
         if(password_verify($pase,$pase_db)){
             session_start();
             $_SESSION['usuario'] = $correo;
-            mysqli_close($conn);
+            
             echo "Bienvenido $nombre";
         }
         else{
@@ -21,6 +21,6 @@
     else{
         echo mysqli_error();
     }
-    
+    mysqli_close($conn);
 ?>
 

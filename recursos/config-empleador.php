@@ -20,6 +20,7 @@
         echo true;
     }
     else{
-        echo "Algo ha salido mal, verifica tu información";
+        echo "Algo ha salido mal, verifica tu información".mysqli_error($conn);
     }
+    mysqli_close($conn);
 ?>

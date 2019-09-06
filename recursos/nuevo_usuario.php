@@ -10,12 +10,12 @@
     $sql = "INSERT INTO usuarios(correo,nombre_user,numero,pase) VALUES('$correo','$nombre','$telefono','$pass_crypt');";
     
         if($conn->query($sql)){
-            mysqli_close($conn);
+            
             echo "Bienvenido/a $nombre";
         }
         else{
             echo "Este correo ya ha sido registrado";
         }
     
-    
+        mysqli_close($conn);
 ?>
