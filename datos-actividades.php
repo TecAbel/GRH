@@ -15,7 +15,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>GRH | Actividades Registradas</title>
     <link rel="stylesheet" href="css\normalize.css">
     <link rel="stylesheet" href="css\estilos.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -43,6 +43,30 @@
             $("#txtActividad").val('<?php echo $actividadRegistrada['nombre_act'] ?>');
             $("#txtTransporte").val('<?php echo $actividadRegistrada['transporte'] ?>');
             $("#txtActDetalle").val('<?php echo $actividadRegistrada['descripcion'] ?>');
+
+            $("#btnEliminar").click(function(){
+                alertify.confirm('Se requiere confirmación','¿Está seguro de querer eliminar esta actividad?',
+                function(){
+                    $.ajax({
+                        url: "recursos/config-actividades.php?CDE= <?php echo $actividad ?>",
+                        type: "post",
+                        data: $("#formulario").serialize(),
+                        success: function(d){
+                            if(d==true){
+                                alertify.message('Eliminando actividad...');
+                                setTimeout(function(){
+                                    location.href = "actividades.php";
+                                }, 1000);
+                            }else{
+                                alertify.error(d);
+                            }
+                        }
+                    });
+                },
+                function(){
+                    alertify.error('Acción cancelada')
+                } );
+            });
         });
     </script>
 </head>
@@ -58,7 +82,7 @@
         <div class="contenedor-campos">
             
                 <p class="importante">
-                    Aquí podrás actualizar o cambiar los datos que ingresaste de tus actividades realizadas <strong>si es que aún no has realizado tu corte</strong>.
+                    Aquí podrás avisualizar y/o eliminar los datos que ingresaste de tus actividades realizadas <strong>si es que aún no has realizado tu corte</strong>.
                 </p>
                 <div class="campo w-100">
                 <p>

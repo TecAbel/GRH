@@ -130,7 +130,7 @@
         <table class="actividades">
             <thead>
                 <th colspan="3">Nueva actividad</th>
-                <th><button class="boton" id="btn-abrir-popup"><i class="fas fa-user-plus"></i></button></th>
+                <th><button class="boton" id="btn-abrir-popup"><i class="fas fa-plus-square"></i></button></th>
             </thead>
             <thead>
                 <th colspan="4">Actividades registrados</th>
@@ -139,7 +139,7 @@
                 <th>Fecha</th>
                 <th>Empleador</th>
                 <th>Actividad</th>
-                <th>Ver / editar</th>
+                <th>Ver / eliminar</th>
             </thead>
             
             <?php echo getActividadesTabla() ?>

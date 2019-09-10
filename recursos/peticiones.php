@@ -130,7 +130,7 @@
                     <td>".$fila['fecha']."</td>
                     <td>".$fila['nombre_emp']."</td>
                     <td>".$fila['nombre_act']."</td>
-                <td><a href='datos-actividades.php?RXQ=".$fila['num_cal']."' class='boton'><i class='fas fa-edit'></i></a></td>
+                <td><a href='datos-actividades.php?RXQ=".$fila['num_cal']."' class='boton'><i class='fas fa-search'></i></a></td>
             </tr>
                 ";
             }
