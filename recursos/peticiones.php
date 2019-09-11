@@ -164,4 +164,38 @@
         return $texto;
         mysqli_close($conn);
     }
+    function getReporteXHacer($correo){
+        include('sql.php');
+        session_start();
+        $correo = $_SESSION['usuario'];
+        $texto = '';
+        $sql = "
+            SELECT empleadores.nombre_emp as empleador , SUM(calculos.total_cal) as monto_total
+            FROM empleadores 
+            INNER JOIN calculos ON calculos.num_emp = empleadores.num_emp
+            WHERE calculos.num_usuario = (SELECT num_usuario FROM usuarios WHERE correo = '$correo')
+            group by empleadores.nombre_emp
+            ORDER BY total_cal DESC;
+        ";
+        $resultado = mysqli_query($conn, $sql);
+        if(mysqli_num_rows($resultado)){
+            while ($fila = mysqli_fetch_assoc($resultado)) {
+                $texto .= "
+                <tr>
+                <td>".$fila['empleador']."</td>
+                <td>$".$fila['monto_total']."</td>
+                <td><a href='#' class='boton'><i class='fas fa-money-check-alt'></i></a></td>
+                </tr>
+                ";
+            }
+        }else{
+            $texto = "
+            <tr>
+                <td colspan='3'>Aún no ha registrado ninguna actividad</td>
+            <tr>
+            ";
+        }
+        return $texto;
+        mysqli_close($conn);
+    }
 ?>

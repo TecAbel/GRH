@@ -1,3 +1,12 @@
+<?php
+
+    include('recursos\repetitivo.php');
+    include('recursos\validaciones.php');   
+    include('recursos\peticiones.php');
+    $usuario = $_SESSION['usuario'];
+    
+    validarInicio($usuario);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +33,13 @@
     <!-- google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Monoton|Paytone+One|Yellowtail&display=swap" rel="stylesheet">
 
+    <script>
+        $(document).ready(function(){
+            $("#btnRegresar").click(function(){
+                location.href="menu-principal.php";
+            });
+        });
+    </script>
 
 </head>
 <body>
@@ -32,5 +48,27 @@
             <h1>Reportes</h1>
         </div>
     </div>
+    <div class="contenedor">
+    <p class="eslogan">Tu mejor manera de cobrar</p>
+        <p class="importante">
+            Aquí puedes ver aquellos empleadores a los cuales no les has generado un reporte de cobro y el monto por cobrar de dichas actividades              
+        </p>
+        <table class="actividades">
+            <thead>
+                <th colspan="3">Actividades por cobrar</th>
+            </thead>   
+            <thead>
+                <th>Empleador</th>
+                <th>Monto</th>
+                <th>Generar reporte</th>
+            </thead>
+            <?php echo getReporteXHacer($usuario); ?>
+        </table>
+        <div class="campo guardar w-100">
+            <input class="boton" id="btnRegresar" name="btnRegresar" type="button" value="Menú principal">
+        </div>
+    </div>
+    
+    <?php echo getFooter() ?>
 </body>
 </html>

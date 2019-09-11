@@ -27,10 +27,42 @@
     ";
     $sqlCalculo = "INSERT INTO calculos(num_usuario,num_emp,num_actividad,fecha,hora_ent,hora_sal,horas_tra,descripcion,transporte)
     VALUES('$numU', '$numEmpleador',(SELECT num_actividad FROM actividades WHERE nombre_act = '$actividad'),'$fecha','$inicio', '$termino','$redondeo','$descripcion','$transporte');";
+    $sqlSubtotal="
+        UPDATE calculos 
+        SET subtotal_cal =  (
+            horas_tra*(
+            SELECT cuota 
+            FROM empleadores 
+            where num_usuario = (
+                SELECT num_usuario 
+                FROM usuarios 
+                WHERE correo = '$correo'
+                ) 
+            AND num_emp = '$numEmpleador'
+            )
+        )
+        WHERE calculos.num_emp = '$numEmpleador' AND calculos.num_usuario = '$numU';
+    ";
+    $sqlTotal = "
+        UPDATE calculos
+        SET total_cal = (
+            subtotal_cal + transporte
+        )
+        WHERE calculos.num_emp = '$numEmpleador' AND calculos.num_usuario = '$numU';
+    ";
     if($numEmpleador!=null){
         if($conn->query($sqlActividad)){
             if($conn->query($sqlCalculo)){
-                $texto = true;
+                if($conn->query($sqlSubtotal)){
+                    if($conn->query($sqlTotal)){
+                        $conn->query($sqlTotal);
+                        $texto = true;
+                    }else{
+                        $texto = "Error : ". mysqli_error($conn); 
+                    }
+                }else{
+                    $texto = "Error : ". mysqli_error($conn); 
+                }
             }
             else{
                 $texto = "Error : ". mysqli_error($conn);
