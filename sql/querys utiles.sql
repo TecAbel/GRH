@@ -7,7 +7,7 @@ WHERE num_cal = '3';
 SELECT usuarios.num_usuario FROM usuarios WHERE usuarios.correo = 'anibalitoaqui@gmail.com';
 
 
-select * from ;
+select * from CALCULOS;
 
 SELECT usuarios.nombre_user, usuarios.correo, usuarios.numero, usuarios.rfc, 
 empleadores.nombre_emp,empleadores.correo_emp, calculos.fecha,actividades.nombre_act, calculos.descripcion, calculos.horas_tra
@@ -27,3 +27,13 @@ WHERE calculos.num_usuario = (SELECT num_usuario FROM usuarios where correo = 'a
 AND empleadores.nombre_emp = 'Carlos Sosa';
 
 SELECT * FROM calculos WHERE num_usuario = '1';
+#calcular subtotal
+UPDATE calculos 
+SET subtotal_cal =  (
+	SELECT empleadores.cuota*calculos.horas_tra 
+    FROM calculos 
+    INNER JOIN empleadores 
+    ON calculos.num_emp = empleadores.num_emp 
+    WHERE empleadores.nombre_emp = 'Carlos Sosa'
+);
+
