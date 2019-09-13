@@ -61,6 +61,7 @@
                 <th>Empleador</th>
                 <th>Monto</th>
                 <th>Generar reporte</th>
+                <th>Terminar reporte</th>
             </thead>
             <?php echo getReporteXHacer($usuario); ?>
         </table>

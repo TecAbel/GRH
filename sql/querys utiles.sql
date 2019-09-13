@@ -85,6 +85,3 @@ SELECT nombre_emp, nombre_emp_emp
         FROM empleadores
         WHERE num_usuario = (SELECT num_usuario FROM usuarios WHERE correo = 'abelardo@mail.com')
         AND num_emp = '1';
-        
-        *255
-        5525813322

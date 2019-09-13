@@ -185,6 +185,7 @@
                 <td>".$fila['empleador']."</td>
                 <td>$".$fila['monto_total']."</td>
                 <td><a href='recursos/reportes-gen.php?QWEC=".$fila['num_emp']."' class='boton'><i class='fas fa-money-check-alt'></i></a></td>
+                <td><a href='#' class='boton'><i class='fas fa-check-circle'></i></a></td>
                 </tr>
                 ";
             }
