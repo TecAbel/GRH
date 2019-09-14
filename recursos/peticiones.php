@@ -188,7 +188,7 @@
                 <td>".$fila['empleador']."</td>
                 <td>$".$fila['monto_total']."</td>
                 <td><a href='recursos/reportes-gen.php?QWEC=".SED::encryption($fila['num_emp'])."' class='boton' target='_blank' rel='noopener noreferrer'><i class='fas fa-money-check-alt'></i></a></td>
-                <td><a href='#' class='boton'><i class='fas fa-check-circle'></i></a></td>
+                <td><button id='btnEliminar' class='boton'><i class='fas fa-check-circle'></i></button></td>
                 </tr>
                 ";
             }

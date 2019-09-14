@@ -271,9 +271,11 @@ input.obligatorio{
     padding: .7rem;
     border: none;
     transition: .5s all;
+    cursor: pointer;
 }
 .boton.eliminar{
     background-color: rgb(236, 58, 58) !important;
+    cursor: pointer;
 }
 .boton:hover{
     background: var(--secundario);
@@ -334,6 +336,7 @@ button.icono-boton{
 .menu-boton{
     background-color: transparent;
     border: none;
+    cursor: pointer;
 }
 
 .contenedor-footer {
