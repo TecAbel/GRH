@@ -40,7 +40,7 @@
             });
             $("a.confirmacion").click(function(){
                 var link = $(this).attr('href');
-                alertify.confirm('¿Está seguro? Esto eliminará las actividades que tenga con este empleador.',function(){location.href=link;},function(){alertify.error('Cancelado')});
+                alertify.confirm('Se requiere confirmación','¿Está seguro? Esto eliminará las actividades que tenga con este empleador.',function(){location.href=link;},function(){alertify.error('Acción cancelada')});
                 return false;
             });
         });
