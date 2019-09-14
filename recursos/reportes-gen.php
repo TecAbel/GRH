@@ -6,12 +6,20 @@
     $d = $fecha_array[mday];
     $m = $fecha_array[mon];
     $y = $fecha_array[year];
+    $textoEmpresa = "";
     $fecha = "$d/$m/$y";
     $fechaarchivo = "$d $m $y";
     $empleador_array = getEmpeldorYEmpresa($numEmpleador);
     $empelador = $empleador_array['nombre_emp'];
     $empresa = $empleador_array['nombre_emp_emp'];
     $nombre = getNombreUsuario();
+    if($empresa == null or $empresa == ''){
+        $textoEmpresa = "";
+    }
+    else{
+        $textoEmpresa = "de la empresa <strong>$empresa</strong>";
+        
+    }
 ?>
 
 <!DOCTYPE html>
@@ -81,7 +89,7 @@
         <H1>Recibo de honorarios a <?php echo $fecha ?></H1>        
         <div class="contenedor">
             <p>
-                Quien suscribe el presente documento <strong><?php echo getNombreUsuario()?> </strong>, manifiesta haber recibido a su entera satisfacción la cantidad de <strong>$<?php echo getTotalReporte($numEmpleador)?></strong> MXN, misma que es entregada por <strong><?php echo $empelador ?></strong> de la empresa <strong><?php echo $empresa ?></strong> , en efectivo, por concepto de:
+                Quien suscribe el presente documento <strong><?php echo getNombreUsuario()?> </strong>, manifiesta haber recibido a su entera satisfacción la cantidad de <strong>$<?php echo getTotalReporte($numEmpleador)?></strong> MXN, misma que es entregada por <strong><?php echo $empelador ?></strong> <?php echo $textoEmpresa?> , en efectivo, por concepto de:
             <p>
             <table class="actividades">
                 <tr>
@@ -147,8 +155,10 @@
     $pdf = $dompdf->output();
     $filename = "reporte de honorarios $nombre a $empelador $fechaarchivo .pdf" ;
     $dompdf->stream($filename);
-    /*use Dompdf\Dompdf;
 
+
+    /*use Dompdf\Dompdf;
+                    array("Attachment" => false)
     // instantiate and use the dompdf class
     $dompdf = new Dompdf();
     $dompdf->loadHtml('hello world');
