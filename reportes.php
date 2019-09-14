@@ -38,10 +38,16 @@
             $("#btnRegresar").click(function(){
                 location.href="menu-principal.php";
             });
+            $("a.confirmacion").click(function(){
+                var link = $(this).attr('href');
+                alertify.confirm('¿Está seguro? Esto eliminará las actividades que tenga con este empleador.',function(){location.href=link;},function(){alertify.error('Cancelado')});
+                return false;
+            });
         });
     </script>
 
 </head>
+
 <body>
     <div class="hero">
         <div class="contenedor-hero">
@@ -53,21 +59,24 @@
         <p class="importante">
             Aquí puedes ver aquellos empleadores a los cuales no les has generado un reporte de cobro y el monto por cobrar de dichas actividades              
         </p>
-        <table class="actividades">
-            <thead>
-                <th colspan="3">Actividades por cobrar</th>
-            </thead>   
-            <thead>
-                <th>Empleador</th>
-                <th>Monto</th>
-                <th>Generar reporte</th>
-                <th>Terminar reporte</th>
-            </thead>
-            <?php echo getReporteXHacer($usuario); ?>
-        </table>
-        <div class="campo guardar w-100">
-            <input class="boton" id="btnRegresar" name="btnRegresar" type="button" value="Menú principal">
-        </div>
+        <form action="" id="formulario" method="post" onsubmit="javascript:return false;">
+            <table class="actividades">
+                <thead>
+                    <th colspan="3">Actividades por cobrar</th>
+                </thead>   
+                <thead>
+                    <th>Empleador</th>
+                    <th>Monto</th>
+                    <th>Generar reporte</th>
+                    <th>Terminar reporte</th>
+                </thead>
+                <?php echo getReporteXHacer($usuario); ?>
+            </table>
+            <div class="campo guardar w-100">
+                <input class="boton" id="btnRegresar" name="btnRegresar" type="button" value="Menú principal">
+            </div>
+        </form>
+        
     </div>
     
     <?php echo getFooter() ?>
