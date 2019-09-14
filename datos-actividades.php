@@ -3,10 +3,11 @@
     include('recursos\repetitivo.php');
     include('recursos\peticiones.php');
     include('recursos\validaciones.php');
-
+    include('recursos\SED.php');
     $usuario = $_SESSION['usuario'];
     validarInicio($usuario);
-    $actividad = $_GET['RXQ'];
+    $actividadE = $_GET['RXQ'];
+    $actividad = SED::decryption($actividadE);
     $actividadRegistrada = getDatosActividades($usuario,$actividad);
 ?>
 <!DOCTYPE html>

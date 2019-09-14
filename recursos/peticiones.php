@@ -29,6 +29,7 @@
     }
     function getEmpleadores($numU){
         include('sql.php');
+        include('SED.php');
         $texto='';
         $sql = "SELECT num_emp,nombre_emp,nombre_emp_emp, tel_emp FROM empleadores WHERE num_usuario = '$numU' order by nombre_emp;";
         $resultado = $conn->query($sql);
@@ -42,7 +43,7 @@
                     <td>".$filas_emp['nombre_emp'] . "</td>
                     <td>" .$filas_emp['nombre_emp_emp'] . "</td>
                     
-                    <td><a href='datos-empleadores.php?XQR=".$filas_emp['num_emp']."'< class='boton'><i class='fas fa-edit'></i></a></td>
+                    <td><a href='datos-empleadores.php?XQR=".SED::encryption($filas_emp['num_emp'])."'< class='boton'><i class='fas fa-edit'></i></a></td>
                 </tr>";
             }
         }else{
@@ -113,6 +114,7 @@
     }
     function getActividadesTabla(){
         include('sql.php');
+        include('SED.php');
         session_start();
         $correo = $_SESSION['usuario'];
         $texto='';
@@ -130,7 +132,7 @@
                     <td>".$fila['fecha']."</td>
                     <td>".$fila['nombre_emp']."</td>
                     <td>".$fila['nombre_act']."</td>
-                <td><a href='datos-actividades.php?RXQ=".$fila['num_cal']."' class='boton'><i class='fas fa-search'></i></a></td>
+                <td><a href='datos-actividades.php?RXQ=".SED::encryption($fila['num_cal'])."' class='boton'><i class='fas fa-search'></i></a></td>
             </tr>
                 ";
             }
@@ -166,6 +168,7 @@
     }
     function getReporteXHacer($correo){
         include('sql.php');
+        include('SED.php');
         session_start();
         $correo = $_SESSION['usuario'];
         $texto = '';
@@ -184,7 +187,7 @@
                 <tr>
                 <td>".$fila['empleador']."</td>
                 <td>$".$fila['monto_total']."</td>
-                <td><a href='recursos/reportes-gen.php?QWEC=".$fila['num_emp']."' class='boton'><i class='fas fa-money-check-alt'></i></a></td>
+                <td><a href='recursos/reportes-gen.php?QWEC=".SED::encryption($fila['num_emp'])."' class='boton' target='_blank' rel='noopener noreferrer'><i class='fas fa-money-check-alt'></i></a></td>
                 <td><a href='#' class='boton'><i class='fas fa-check-circle'></i></a></td>
                 </tr>
                 ";

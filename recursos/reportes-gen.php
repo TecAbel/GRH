@@ -1,7 +1,9 @@
 <?php
     include('peticiones.php');
+    include('SED.php');
     ob_start();
-    $numEmpleador = $_GET['QWEC'];
+    $numEmpleadorE = $_GET['QWEC'];
+    $numEmpleador = SED::decryption($numEmpleadorE);
     $fecha_array  = getdate();
     $d = $fecha_array[mday];
     $m = $fecha_array[mon];
@@ -154,7 +156,7 @@
     $dompdf->render();
     $pdf = $dompdf->output();
     $filename = "reporte de honorarios $nombre a $empelador $fechaarchivo .pdf" ;
-    $dompdf->stream($filename);
+    $dompdf->stream($filename, array("Attachment" => false));
 
 
     /*use Dompdf\Dompdf;

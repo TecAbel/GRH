@@ -3,11 +3,13 @@
     include('recursos\repetitivo.php');
     include('recursos\peticiones.php');
     include('recursos\validaciones.php');
+    include('recursos\SED.php');
     
     $usuario = $_SESSION['usuario'];
     validarInicio($usuario);
     $numUsuario = getUserid($usuario);
-    $empleador = $_GET['XQR'];
+    $empleadorE = $_GET['XQR'];
+    $empleador = SED::decryption($empleadorE);
     
     $datosEmpleador = getDatosEmpleadores($empleador,$numUsuario['num_usuario']);
    
