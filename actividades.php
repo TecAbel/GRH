@@ -1,7 +1,7 @@
 <?php
-    include('recursos\repetitivo.php');
-    include('recursos\validaciones.php');   
-    include('recursos\peticiones.php');
+    include('recursos/repetitivo.php');
+    include('recursos/validaciones.php');   
+    include('recursos/peticiones.php');
     $usuario = $_SESSION['usuario'];
     
     validarInicio($usuario);
@@ -31,8 +31,8 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/default.min.css"/>
     <!--ajax-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.4.4.min.js"></script>
-    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
     <!-- google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Monoton|Paytone+One|Yellowtail&display=swap" rel="stylesheet">
 
@@ -58,8 +58,9 @@
                             required: true
                         },
                         txtTransporte:{
+                            required: true,
                             number: true,
-                            min:1
+                            min:0
                         }
                     },
                     messages:{
@@ -76,8 +77,9 @@
                             required: "<i class='fas fa-times error-msg'></i>"
                         },
                         txtTransporte:{
+                            required: "Si no hay gasto en transporte ponga 0 <i class='fas fa-times error-msg'></i>",
                             number: "Solo números <i class='fas fa-times error-msg'></i>",
-                            min: "Si no hay gasto en transporte borre este campo <i class='fas fa-times error-msg'></i>"
+                            min: "Si no hay gasto en transporte ponga 0 <i class='fas fa-times error-msg'></i>"
                         }
                     }
                 });
@@ -183,7 +185,7 @@
                         </div>
                         <div class="campo">
                             <label for="txtTransporte">Transporte: $</label>
-                            <input type="number" step="00.01" min="1" id="txtTransporte" name="txtTransporte">
+                            <input value="0" type="number" step="00.01" min="0" id="txtTransporte" name="txtTransporte">
                         </div>
                         <div class="campo">
                             <input type="submit" class="boton"  name="btnRegistrar" id="btnRegistrar" value="Registrar actividad">

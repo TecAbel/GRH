@@ -1,9 +1,9 @@
 <?php
     header('Content-Type: text/html; charset=utf-8');
-    include('recursos\repetitivo.php');
-    include('recursos\peticiones.php');
-    include('recursos\validaciones.php');
-    include('recursos\SED.php');
+    include('recursos/repetitivo.php');
+    include('recursos/peticiones.php');
+    include('recursos/validaciones.php');
+    include('recursos/SED.php');
     
     $usuario = $_SESSION['usuario'];
     validarInicio($usuario);
@@ -35,8 +35,8 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/default.min.css"/>
     <!--ajax-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.4.4.min.js"></script>
-    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
     <!-- google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Monoton|Paytone+One|Yellowtail&display=swap" rel="stylesheet">
 

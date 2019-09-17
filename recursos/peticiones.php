@@ -115,7 +115,7 @@
     function getActividadesTabla(){
         include('sql.php');
         include('SED.php');
-        session_start();
+        #session_start();
         $correo = $_SESSION['usuario'];
         $texto='';
         $sql = "SELECT calculos.num_cal,date_format(calculos.fecha,'%d/%m/%y') AS fecha , empleadores.nombre_emp, actividades.nombre_act FROM calculos
@@ -169,7 +169,7 @@
     function getReporteXHacer($correo){
         include('sql.php');
         include('SED.php');
-        session_start();
+        #session_start();
         $correo = $_SESSION['usuario'];
         $texto = '';
         $sql = "
@@ -205,7 +205,8 @@
 
     function getInfoReporte($numEmpleador){
         include('sql.php');
-        session_start();
+        #session_start();
+        $texto = "";
         $correo = $_SESSION['usuario'];
         $sql = "
         SELECT date_format(calculos.fecha,'%d/%m/%y') as fecha, actividades.nombre_act, calculos.descripcion, calculos.total_cal
@@ -235,7 +236,7 @@
 
     function getTotalReporte($numEmpleador){
         include('sql.php');
-        session_start();
+        #session_start();
         $total='';
         $correo = $_SESSION['usuario'];
         $sql="SELECT sum(calculos.total_cal) as total
@@ -256,7 +257,7 @@
 
     function getNombreUsuario(){
         include('sql.php');
-        session_start();
+        #session_start();
         $correo = $_SESSION['usuario'];
         $nombre = '';
         $sql = "SELECT nombre_user 
