@@ -3,9 +3,14 @@
     include('recursos/repetitivo.php');
     include('recursos/peticiones.php');
     include('recursos/validaciones.php');
+    if(isset($_SESSION['usuario'])){
+        $usuario = $_SESSION['usuario'];
+        validarInicio($usuario);
+    }
+    else{
+        header("Location: index.php");
+    }
     
-    $usuario = $_SESSION['usuario'];
-    validarInicio($usuario);
     $datosPersonales = getDatosPersonales($usuario);
 ?>
 

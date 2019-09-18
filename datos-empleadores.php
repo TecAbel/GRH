@@ -4,9 +4,14 @@
     include('recursos/peticiones.php');
     include('recursos/validaciones.php');
     include('recursos/SED.php');
+    if(isset($_SESSION['usuario'])){
+        $usuario = $_SESSION['usuario'];
+        validarInicio($usuario);
+    }
+    else{
+        header("Location: index.php");
+    }
     
-    $usuario = $_SESSION['usuario'];
-    validarInicio($usuario);
     $numUsuario = getUserid($usuario);
     $empleadorE = $_GET['XQR'];
     $empleador = SED::decryption($empleadorE);

@@ -1,9 +1,16 @@
 <?php
     header('Content-Type: text/html; charset=utf-8');
+    
     include('recursos/repetitivo.php');
     include('recursos/validaciones.php');
-    $usuario = $_SESSION['usuario'];
-    validarInicio($usuario);
+    if(isset($_SESSION['usuario'])){
+        $usuario = $_SESSION['usuario'];
+        validarInicio($usuario);
+    }
+    else{
+        header("Location: index.php");
+    }
+    
     
 ?>
 

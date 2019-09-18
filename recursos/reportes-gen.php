@@ -134,7 +134,7 @@
             <br>
             Por lo anterior, GRH no se hace responsable de la información que el mismo usuario haya ingresado y presente en este documento.
         </p>
-            <img src="..\img\logocompleto.png"  width="350px">
+            <img src="../img/logocompleto.png"  width="350px">
         </div>
 
     </body>

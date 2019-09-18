@@ -4,8 +4,14 @@
     include('recursos/peticiones.php');
     include('recursos/validaciones.php');
     include('recursos/SED.php');
-    $usuario = $_SESSION['usuario'];
-    validarInicio($usuario);
+    if(isset($_SESSION['usuario'])){
+        $usuario = $_SESSION['usuario'];
+        validarInicio($usuario);
+    }
+    else{
+        header("Location: index.php");
+    }
+    
     $actividadE = $_GET['RXQ'];
     $actividad = SED::decryption($actividadE);
     $actividadRegistrada = getDatosActividades($usuario,$actividad);

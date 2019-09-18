@@ -2,9 +2,14 @@
     include('recursos/repetitivo.php');
     include('recursos/validaciones.php');   
     include('recursos/peticiones.php');
-    $usuario = $_SESSION['usuario'];
+    if(isset($_SESSION['usuario'])){
+        $usuario = $_SESSION['usuario'];
+        validarInicio($usuario);
+    }
+    else{
+        header("Location: index.php");
+    }
     
-    validarInicio($usuario);
     $user_Array = getUserid($usuario);
     $userU =  $user_Array['num_usuario'];
 ?>
