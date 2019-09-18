@@ -195,7 +195,7 @@
         }else{
             $texto = "
             <tr>
-                <td colspan='3'>Aún no ha registrado ninguna actividad</td>
+                <td colspan='4'>Aún no ha registrado ninguna actividad</td>
             <tr>
             ";
         }
