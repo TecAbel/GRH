@@ -44,7 +44,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
     <!-- google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Monoton|Paytone+One|Yellowtail&display=swap" rel="stylesheet">
-
+    <link rel="shortcut icon" href="img\logoSup64px.ico" type="image/x-icon">
     <script>
         $(document).ready(function(){
             $("#btnRegresar").click(function(){

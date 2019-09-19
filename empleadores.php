@@ -39,7 +39,7 @@
     <!-- google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Monoton|Paytone+One|Yellowtail&display=swap" rel="stylesheet">
 
-
+    <link rel="shortcut icon" href="img\logoSup64px.ico" type="image/x-icon">
     <script>
         $(document).ready(function(){
             $("#btnRegresar").click(function(){
