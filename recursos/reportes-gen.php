@@ -158,7 +158,7 @@
     $dompdf->render();
     $pdf = $dompdf->output();
     $filename = "reporte de honorarios $nombre a $empelador $fechaarchivo .pdf" ;
-    $dompdf->stream($filename, array("Attachment" => false));
+    $dompdf->stream($filename);
 
 
     /*use Dompdf\Dompdf;
