@@ -72,7 +72,7 @@
     <?php echo getHeader() ?>
     <div class="hero">
         <div class="contenedor-hero">
-            <h1>Reportes</h1>
+            <h1 id="titulo">Reportes</h1>
         </div>
     </div>
     <div class="contenedor">
