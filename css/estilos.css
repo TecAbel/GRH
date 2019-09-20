@@ -87,6 +87,82 @@ table.actividades{
 .oculto{
     display: none;
 }
+nav{
+    z-index: 1;
+    position: fixed;
+    
+    width: 100%;
+    background-color: white;
+    transition: .5s ease all;
+}
+nav img{
+    padding: 0!important;
+    margin: 0!important;
+    width: 72px;
+}
+nav ul{
+    width: 80%;
+    margin: 0 auto;
+    padding: 0;
+    transition: .5s ease all;
+}
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 5px 20px;
+    transition: .3s;
+}
+
+nav ul li a{
+    font-size: 1.6rem;
+    text-decoration: none;
+    color: black;
+    transition: .3s;
+}
+nav ul li a:hover{
+    color: white;
+    background-color: black;
+    padding: 10px 20px;
+}
+nav .logo {
+    height: 2.5rem!important;
+    text-align: left!important;
+    padding: 0 20px!important;
+}
+nav .abrir{
+    font-size: 2rem;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: var(--primario);
+    text-align: right;
+    box-sizing: border-box;
+    color: var(--blanco);
+    display: none;
+    transition: .5s ease all;
+}
+nav span{
+    text-align: center!important;
+}
+@media(max-width: 768px){
+    nav .abrir{
+        display: block;
+    }
+    nav ul{
+        display: none;
+        width: 100%;
+    }
+    nav ul li{
+        display: block;
+        text-align: center;
+    }
+    nav ul li a{
+        font-size: 2rem;
+    }
+}
+nav ul.active{
+    display: block;
+    transform: scale(.9);
+}
 
 .overlay{
     background: rgba(0,0,0,.3);
@@ -162,6 +238,8 @@ input.obligatorio{
     background-attachment: fixed;
 }
 .hero{
+    padding-top: 5rem;
+    padding-bottom: 1rem;
     background-image: url(../img/work.jpg);
     background-size: 100% 100%;
     background-attachment: fixed;

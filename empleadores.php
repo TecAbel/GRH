@@ -98,11 +98,27 @@
             $("#btnRegistrar").click(function(){
                 validarForm();
             });
+            function cerrarSesion(){
+                $.ajax({
+                    url: "recursos/salir.php",
+                    success:function(){
+                        alertify.message("Hasta pronto");
+                        setTimeout(function(){
+                                location.href="index.php";
+                            }, 1500);
+                    }
+                });
+            }
+
+            $("#btnCerrarSesion").click(function(){
+                cerrarSesion();
+            });
         });
     </script>
     <title>GRH | Empleadores</title>
 </head>
 <body>
+    <?php echo getHeader() ?>
     <div class="hero">
         <div class="contenedor-hero">
             <h1 id="titulo" class="">Empleadores</h1>
@@ -194,5 +210,6 @@
 
     <?php echo getFooter();  ?>
     <script src="recursos\formEmergente.js"></script>
+    <script src="recursos\nav.js"></script>
 </body>
 </html>

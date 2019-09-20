@@ -48,12 +48,28 @@
                 alertify.confirm('Se requiere confirmación','¿Está seguro? Esto eliminará las actividades que tenga con este empleador.',function(){location.href=link;},function(){alertify.error('Acción cancelada')});
                 return false;
             });
+            function cerrarSesion(){
+                $.ajax({
+                    url: "recursos/salir.php",
+                    success:function(){
+                        alertify.message("Hasta pronto");
+                        setTimeout(function(){
+                                location.href="index.php";
+                            }, 1500);
+                    }
+                });
+            }
+
+            $("#btnCerrarSesion").click(function(){
+                cerrarSesion();
+            });
         });
     </script>
 
 </head>
 
 <body>
+    <?php echo getHeader() ?>
     <div class="hero">
         <div class="contenedor-hero">
             <h1>Reportes</h1>
@@ -85,5 +101,6 @@
     </div>
     
     <?php echo getFooter() ?>
+    <script src="recursos\nav.js"></script>
 </body>
 </html>

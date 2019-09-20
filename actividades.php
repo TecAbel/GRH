@@ -23,7 +23,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GRH | Actividades</title>
     <link rel="stylesheet" href="css\normalize.css">
+    <link rel="stylesheet" href="css\nav.css">
     <link rel="stylesheet" href="css\estilos.css">
+    
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
@@ -118,10 +120,28 @@
             $("#btnRegistrar").click(function(){
                 validarForm();
             });
+
+            function cerrarSesion(){
+                $.ajax({
+                    url: "recursos/salir.php",
+                    success:function(){
+                        alertify.message("Hasta pronto");
+                        setTimeout(function(){
+                                location.href="index.php";
+                            }, 1500);
+                    }
+                });
+            }
+
+            $("#btnCerrarSesion").click(function(){
+                cerrarSesion();
+            });
         });
     </script>
 </head>
 <body>
+    <?php echo getHeader() ?>
+    
     <div class="hero">
         <div class="contenedor-hero">
             <h1 id="titulo">Actividades</h1>
@@ -200,7 +220,9 @@
             </div>
         </div>
     </div>
+    
     <?php echo getFooter()?>
     <script src="recursos\formEmergente.js"></script>
+    <script src="recursos/nav.js"></script>
 </body>
 </html>
