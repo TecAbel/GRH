@@ -43,7 +43,7 @@
                     <td>".$filas_emp['nombre_emp'] . "</td>
                     <td>" .$filas_emp['nombre_emp_emp'] . "</td>
                     
-                    <td><a href='datos-empleadores.php?XQR=".SED::encryption($filas_emp['num_emp'])."'< class='boton'><i class='fas fa-edit'></i></a></td>
+                    <td><a href='datos-empleadores?XQR=".SED::encryption($filas_emp['num_emp'])."'< class='boton'><i class='fas fa-edit'></i></a></td>
                 </tr>";
             }
         }else{
@@ -132,7 +132,7 @@
                     <td>".$fila['fecha']."</td>
                     <td>".$fila['nombre_emp']."</td>
                     <td>".$fila['nombre_act']."</td>
-                <td><a href='datos-actividades.php?RXQ=".SED::encryption($fila['num_cal'])."' class='boton'><i class='fas fa-search'></i></a></td>
+                <td><a href='datos-actividades?RXQ=".SED::encryption($fila['num_cal'])."' class='boton'><i class='fas fa-search'></i></a></td>
             </tr>
                 ";
             }
@@ -187,8 +187,8 @@
                 <tr>
                 <td>".$fila['empleador']."</td>
                 <td>$".$fila['monto_total']."</td>
-                <td><a href='recursos/reportes-gen.php?QWEC=".SED::encryption($fila['num_emp'])."' class='boton' target='_blank' rel='noopener noreferrer'><i class='fas fa-money-check-alt'></i></a></td>
-                <td><a href='recursos/terminar-reporte.php?EWER=". SED::encryption($fila['num_emp']) ."' id='btnEliminar' class='boton confirmacion'><i class='fas fa-check-circle'></i></a></td>
+                <td><a href='recursos/reportes-gen?QWEC=".SED::encryption($fila['num_emp'])."' class='boton' target='_blank' rel='noopener noreferrer'><i class='fas fa-money-check-alt'></i></a></td>
+                <td><a href='recursos/terminar-reporte?EWER=". SED::encryption($fila['num_emp']) ."' id='btnEliminar' class='boton confirmacion'><i class='fas fa-check-circle'></i></a></td>
                 </tr>
                 ";
             }

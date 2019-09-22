@@ -42,27 +42,27 @@
     <script>
         $(document).ready(function(){
             $('#btnDatosPersonales').click(function(){
-                window.location= 'datos-personales.php';
+                window.location= 'datos-personales';
             });
 
             $('#btnEmpleadores').click(function(){
-                window.location= 'empleadores.php';
+                window.location= 'empleadores';
             });
 
             $('#btnReportes').click(function(){
-                window.location= 'reportes.php';
+                window.location= 'reportes';
             });
             $('#btnActividades').click(function(){
-                window.location= 'actividades.php';
+                window.location= 'actividades';
             });
 
             function cerrarSesion(){
                 $.ajax({
-                    url: "recursos/salir.php",
+                    url: "recursos/salir",
                     success:function(){
                         alertify.message("Hasta pronto");
                         setTimeout(function(){
-                                location.href="index.php";
+                                location.href="index";
                             }, 1500);
                     }
                 });

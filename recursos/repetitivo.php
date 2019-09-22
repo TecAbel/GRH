@@ -21,10 +21,10 @@
                     <i id='menu' class='fa fa-bars' ></i>
                 </div>
                 <ul id='lista'>
-                    <li><a href='datos-personales.php'>Datos personales</a></li>
-                    <li><a href='empleadores.php'>Empleadores</a></li>
-                    <li><a href='actividades.php'>Actividades</a></li>
-                    <li><a href='reportes.php'>Reportes</a></li>
+                    <li><a href='datos-personales'>Datos personales</a></li>
+                    <li><a href='empleadores'>Empleadores</a></li>
+                    <li><a href='actividades'>Actividades</a></li>
+                    <li><a href='reportes'>Reportes</a></li>
                     <li><a href='#' id='btnCerrarSesion'>Cerrar sesión</a></li>
                     <li><a href='#footer'>Contacto</a></li>
                 </ul>

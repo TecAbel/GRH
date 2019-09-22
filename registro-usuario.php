@@ -124,7 +124,7 @@
                 
             });    
             $("#btnRegresar").click(function(){
-                window.location = "index.php";
+                window.location = "index";
             });
         });
     </script>

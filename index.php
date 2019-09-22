@@ -68,7 +68,7 @@
                                     
                                     alertify.message(d);
                                     setTimeout(function(){
-                                        location.href="menu-principal.php";
+                                        location.href="menu-principal";
                                     }, 1500);
                                 }
                         }
@@ -111,7 +111,7 @@
                 </div>
                 <div class="campo w-100">
                     <!--<input type="button" name="btnRegistro" id="btnRegistro"  value="Regístrate" class="boton">-->
-                    <p>¿Aún no tienes una cuenta? <a href="registro-usuario.php"  rel="noopener noreferrer">Regístrate</a></p>
+                    <p>¿Aún no tienes una cuenta? <a href="registro-usuario"  rel="noopener noreferrer">Regístrate</a></p>
                 </div>
                 
             </div>
