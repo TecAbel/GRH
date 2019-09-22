@@ -83,7 +83,7 @@
         <form action="" id="formulario" method="post" onsubmit="javascript:return false;">
             <table class="actividades">
                 <thead>
-                    <th colspan="3">Actividades por cobrar</th>
+                    <th colspan="4">Actividades por cobrar</th>
                 </thead>   
                 <thead>
                     <th>Empleador</th>
