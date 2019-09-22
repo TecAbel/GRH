@@ -126,12 +126,12 @@
     </script>
 </head>
 <body>
-    <?php echo getHeader() ?>
     <div class="hero">
         <div class="contenedor-hero">
             <h1 id="titulo">Datos Personales</h1>
         </div>
     </div>
+    <?php echo getHeader() ?>
     <form method="post" id="formulario" onsubmit="javascript:return false;">
         <div class="contenedor">
             <p class="eslogan">Tu mejor manera de cobrar</p>

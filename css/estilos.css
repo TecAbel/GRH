@@ -91,10 +91,10 @@ table.actividades{
     display: none;
 }
 nav{
-    z-index: 1;
-    position: fixed;
-    
     width: 100%;
+    position: sticky!important;
+    position: -webkit-sticky;
+    top: 0;
     background-color: white;
     transition: .5s ease all;
 }

@@ -14,7 +14,6 @@
     }
     function getHeader(){
         $header = "
-        <header>
             <nav>
                 <div class='abrir'>
                     <img class='logo' align='left' src='img/logoSup64px.png' alt='GRH'>
@@ -30,7 +29,6 @@
                     <li><a href='#footer'>Contacto</a></li>
                 </ul>
             </nav>
-        </header>
         ";
         return $header;
     }

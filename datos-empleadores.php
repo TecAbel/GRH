@@ -137,13 +137,12 @@
     </script> 
 </head>
 <body>
-    <?php echo getHeader() ?>
     <div class="hero">
         <div class="contenedor-hero">
             <h1 id="titulo" class="">Empleadores</h1>
         </div>
-        
     </div> 
+    <?php echo getHeader() ?>
     <div class="contenedor">
     <form action="" id="formulario" method="post" onsubmit="javascript:return false;">
         <p class="eslogan">Tu mejor manera de cobrar</p>

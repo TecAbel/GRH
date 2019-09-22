@@ -69,12 +69,13 @@
 </head>
 
 <body>
-    <?php echo getHeader() ?>
+    
     <div class="hero">
         <div class="contenedor-hero">
             <h1 id="titulo">Reportes</h1>
         </div>
     </div>
+    <?php echo getHeader() ?>
     <div class="contenedor">
     <p class="eslogan">Tu mejor manera de cobrar</p>
         <p class="importante">
