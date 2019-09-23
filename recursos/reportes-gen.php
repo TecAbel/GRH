@@ -24,6 +24,7 @@
         $textoEmpresa = "de la empresa <strong>$empresa</strong>";
         
     }
+    $filename = "GRH $nombre a $empelador $fechaarchivo .pdf" ;
 ?>
 
 <!DOCTYPE html>
@@ -50,12 +51,22 @@
             }
             body{
                 font-family: var(--fuentePrincipal);
-                /*background-color: var(--primario);*/
-                /*background-image: linear-gradient(to top, #09203f 0%, #537895 100%);*/
-                background-image: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%);
-                min-height: 100%;
-                font-size: 1.6rem;
-                background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+                
+                font-size: 1rem;
+                
+            }
+            .contenedor{
+                margin-top: 2rem;
+                padding: 3rem;
+                max-width: 1000px;
+                margin: 2rem auto;
+                width: 95%;
+                background-color: var(--blanco);
+                border-radius: 1rem;
+                -webkit-box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.89);
+                -moz-box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.89);
+                box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.89);
+                font-size: 1rem;
             }
             .eslogan{
                 font-family: 'Yellowtail', cursive;
@@ -67,8 +78,8 @@
                 font-size: 1.5rem;
                 text-align: center;
                 text-transform: uppercase;
-                color: var(--blanco);
                 position: relative;
+                margin-bottom: 3rem;
             }
             .campo{
                 display: flex;
@@ -83,18 +94,27 @@
                 text-align: center;
             }
             .nota{
+                
+                text-align: center;
                 font-size: .5rem;
             }
-            
+            .total{
+                color: #85bb65;
+            }
+            .firma{
+                width: 30%;
+                margin: 10px auto;
+            }
         </style>
     </head>
     <body>
     
         <H1>Recibo de honorarios a <?php echo $fecha ?></H1>        
-        <div class="contenedor">
+        
             <p>
                 Quien suscribe el presente documento <strong><?php echo getNombreUsuario()?> </strong>, manifiesta haber recibido a su entera satisfacción la cantidad de <strong>$<?php echo getTotalReporte($numEmpleador)?></strong> MXN, misma que es entregada por <strong><?php echo $empelador ?></strong> <?php echo $textoEmpresa?> , en efectivo, por concepto de:
             <p>
+        <div class="contenedor">
             <table class="actividades">
                 <tr>
                     <th>Fecha</th>
@@ -110,8 +130,8 @@
                     <td colspan="4"><hr width="100%" /></td>
                 </tr>
                 <tr>
-                    <th colspan="3">Total</th>
-                    <th>$ <?php echo getTotalReporte($numEmpleador) ?></th>
+                    <th class="total" colspan="3">Total</th>
+                    <th class="total">$ <?php echo getTotalReporte($numEmpleador) ?></th>
                 </tr>
                 <tr>
                     <td colspan="4"><hr width="100%" /></td>
@@ -122,8 +142,8 @@
         <br>
         <br>
         <br>
-        <div align = "center">
-            <hr width = "30%" />
+        <div class="firma" align = "center">
+            <hr>
             <br>
             <?php echo getNombreUsuario()?>
         </div>
@@ -141,7 +161,7 @@
     </html>
 
 <?php
-    require( '../dompdf/autoload.inc.php');
+    /*require( '../dompdf/autoload.inc.php');
     require_once '../dompdf/lib/html5lib/Parser.php';
     require_once '../dompdf/lib/php-font-lib/src/FontLib/Autoloader.php';
     require_once '../dompdf/lib/php-svg-lib/src/autoload.php';
@@ -157,7 +177,7 @@
     $dompdf->setPaper('A3', 'landscape');
     $dompdf->render();
     $pdf = $dompdf->output();
-    $filename = "reporte de honorarios $nombre a $empelador $fechaarchivo .pdf" ;
+    
     $dompdf->stream($filename);
 
 
@@ -173,4 +193,11 @@
 
     // Output the generated PDF to Browser
     $dompdf->stream();*/
+
+    #usando mpdf composer 
+    
+    require_once '../vendor/autoload.php';
+    $mpdf = new \Mpdf\Mpdf();
+    $mpdf->WriteHTML(ob_get_clean());
+    $mpdf->Output($filename, 'D'); 
 ?>
