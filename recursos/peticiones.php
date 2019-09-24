@@ -218,11 +218,11 @@
         if(mysqli_num_rows($resultado)){
             while ($fila = mysqli_fetch_assoc($resultado)){
                 $texto .= "
-                    <tr  style='color:#6c757d; text-align=center;'>
-                        <td >".$fila['fecha']."</td>
-                        <td >".$fila['nombre_act']."</td>
-                        <td >".$fila['descripcion']."</td>
-                        <td >$ ".$fila['total_cal']."</td>
+                    <tr  style='color:#6c757d;'>
+                        <td align='center'>".$fila['fecha']."</td>
+                        <td align='center'>".$fila['nombre_act']."</td>
+                        <td align='center'>".$fila['descripcion']."</td>
+                        <td align='center'>$ ".$fila['total_cal']."</td>
                     </tr>
                 ";
             }
