@@ -219,10 +219,10 @@
             while ($fila = mysqli_fetch_assoc($resultado)){
                 $texto .= "
                     <tr  style='color:#6c757d;'>
-                        <td align='center'>".$fila['fecha']."</td>
-                        <td align='center'>".$fila['nombre_act']."</td>
-                        <td align='center'>".$fila['descripcion']."</td>
-                        <td align='center'>$ ".$fila['total_cal']."</td>
+                        <td align='center' style=' padding: 15px 10px 5px 10px; !important;'>".$fila['fecha']."</td>
+                        <td align='center' style=' padding: 15px 10px 5px 10px; !important;'>".$fila['nombre_act']."</td>
+                        <td align='center' style=' padding: 15px 10px 5px 10px; !important; max-width:400px;'>".$fila['descripcion']."</td>
+                        <td align='center' style='color:#28a745;padding: 15px 10px 5px 10px; !important;'>$ ".$fila['total_cal']."</td>
                     </tr>
                 ";
             }
@@ -233,6 +233,7 @@
         mysqli_close($conn);
         return $texto;
     }
+    
 
     function getTotalReporte($numEmpleador){
         include('sql.php');

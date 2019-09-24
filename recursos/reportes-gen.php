@@ -43,34 +43,38 @@
     </head>
     <body style='font-family: arial;'>
     
-        <H1 style='text-align:center'>Recibo de honorarios a $fecha</H1>        
-        <div style='width: 80%; margin: 0 auto; padding: 10px' >
+        
+        <H1 style='text-align:center;'>Recibo de honorarios a $fecha</H1> 
+            
+        <div style='width: 80%; margin: 0 auto; padding: 15px' >
             <p style='text-align: justify text-justify: inter-word;'>
                 Quien suscribe el presente documento <strong> $nombre  </strong>, manifiesta haber recibido a su entera satisfacción la cantidad de <strong>$ $totalReporte </strong> MXN, misma que es entregada por <strong> $empelador </strong> $textoEmpresa, en efectivo, por concepto de:
             <p>
         </div>
-        <div style='width: 95%;'>
-            <table style='margin: 0 auto; width: 100%; border-spacing: 0px 10px; background-color:#343a40; color:white; border-radious: 10px;'>
-                <thead style='text-align: center; color: white;  line-height:30px;'>
-                    <tr>
-                        <th scope='col'>Fecha</th>
-                        <th scope='col'>Concepto</th>
-                        <th scope='col'>Detalle</th>
-                        <th scope='col'>Monto</th>
+        <div>
+            <table style='margin: 0 auto; width: 100%; border-spacing: 0px 10px; border-radious: 10px;'>
+                
+                
+                <thead style='text-align: center; '>
+                    <tr style='background-color: #343a40;'>
+                        <th scope='col' style=' color:white; padding: 15px 10px 5px 10px; !important;'>Fecha</th>
+                        <th scope='col' style=' color:white; padding: 15px 10px 5px 10px; !important;'>Concepto</th>
+                        <th scope='col' style=' color:white; padding: 15px 10px 5px 10px; !important;'>Detalle</th>
+                        <th scope='col' style=' color:white; padding: 15px 10px 5px 10px; !important;'>Monto</th>
                     </tr>
                 </thead>
                 <tbody style='text-align:center;'>
-                    <tr>
-                        <td colspan='4'><hr width='100%'/></td>
-                    </tr>
+                    
+                        
+                    
                     
                     ".getInfoReporte($numEmpleador)."
-                    <tr>
-                        <td colspan='4'><hr width='100%'/></td>
-                    </tr>
-                    <tr>
-                        <th colspan='3' style='color: #28a745;'>Total</th>
-                        <th style='color: #28a745;'>$ $totalReporte</th>
+                    
+                        
+                    
+                    <tr style='background-color: #28a745; '>
+                        <th colspan='3' style='color: white; padding: 15px 10px 5px 10px; !important;'>Total</th>
+                        <th style='color: white; padding: 15px 10px 5px 10px; !important;'>$ $totalReporte</th>
                     </tr>
                     
                 </tbody>
@@ -88,7 +92,7 @@
         </tr>
             <strong><span style='color: black'> $nombre </span></strong>
         </div>
-        <div align='center' style='font-size: 10px; width: 80%; margin: 10px auto'>
+        <div align='center' style='font-size: 10px; width: 80%; margin: 10px auto; color:#6c757d;'>
             <p style='text-align: center'>
             <strong>Documento generado en https://grh-beta.000webhostapp.com/ </strong>   
             <br> GRH solo genera estos reportes <strong>con los datos que el usuario haya ingresado</strong>, con el fin de ayudar en la administración de reportes de actividades de un usuario que labore por honorarios.
