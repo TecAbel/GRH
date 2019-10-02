@@ -1,4 +1,7 @@
 <?php
+if(!isset($_GET['QWEC'])){
+    header("Location: ../menu-principal");
+}
     include('peticiones.php');
     include('SED.php');
     ob_start();
@@ -24,8 +27,15 @@
         $textoEmpresa = "de la empresa <strong>$empresa</strong>";
         
     }
+    $qr = "";
     $filename = "GRH $nombre a $empelador $fechaarchivo .pdf" ;
     $totalReporte = getTotalReporte($numEmpleador);
+    if($nombre==="Abelardo Aqui Arroyo"){
+        $qr = "<div align='center' style=' width=80%; margin: 10px auto;'>
+        <p>Si desea hacer su pago con <strong>PayPal</strong> puede hacerlo leyendo este código QR o ingresando el link <strong> htttps://paypal.me/AbelardoAqui</strong>. No olvide notificar a $nombre en caso de que escoja este medio.</p>
+        <img src='../img/paypal-qr.jpg'  width='100px'>
+    </div>";
+    } 
     $html = "";
     $html = "
     
@@ -100,6 +110,7 @@
         </p>
             <img src='../img/logocompleto.png'  width='350px'>
         </div>
+        $qr
 
     </body>
     </html>
