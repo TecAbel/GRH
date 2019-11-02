@@ -78,7 +78,7 @@ if(!isset($_GET['QWEC'])){
                         
                     
                     
-                    ".getInfoReporte($numEmpleador)."
+                    ".utf8_encode(getInfoReporte($numEmpleador))."
                     
                         
                     
@@ -86,6 +86,36 @@ if(!isset($_GET['QWEC'])){
                         <th colspan='3' style='color: white; padding: 15px 10px 5px 10px; !important;'>Total</th>
                         <th style='color: white; padding: 15px 10px 5px 10px; !important;'>$ $totalReporte</th>
                     </tr>
+                    
+                </tbody>
+                
+                
+            </table>
+        </div>
+        <br>
+        <br>
+        <h3 style='text-align: center;'>Detalles</h3>
+        <div>
+            <table style='margin: 0 auto; width: 100%; border-spacing: 0px 10px; border-radious: 10px;'>
+                
+                
+                <thead style='text-align: center; '>
+                    <tr style='background-color: #343a40;'>
+                        <th scope='col' style=' color:white; padding: 15px 10px 5px 10px; !important;'>Fecha</th>
+                        <th scope='col' style=' color:white; padding: 15px 10px 5px 10px; !important;'>Inicio</th>
+                        <th scope='col' style=' color:white; padding: 15px 10px 5px 10px; !important;'>Salida</th>
+                        <th scope='col' style=' color:white; padding: 15px 10px 5px 10px; !important;'>Transporte</th>
+                        <th scope='col' style=' color:white; padding: 15px 10px 5px 10px; !important;'>Total horas</th>
+                    </tr>
+                </thead>
+                <tbody style='text-align:center;'>
+                    
+                        
+                    
+                    
+                    ".getDetallesReporte($numEmpleador)."
+                    
+                        
                     
                 </tbody>
                 
@@ -153,8 +183,10 @@ if(!isset($_GET['QWEC'])){
     #usando mpdf composer 
     
     require_once '../vendor/autoload.php';
+    #$html = mb_convert_encoding($html, 'UTF-8', 'UTF-8');
+    #$html = utf8_encode($html);
     $mpdf = new \Mpdf\Mpdf();
     $mpdf->WriteHTML($html);
     $mpdf->Output($filename, 'I'); 
-
+    $mpdf->charset_in='windows-1252';
 ?>

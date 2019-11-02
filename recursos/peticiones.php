@@ -233,6 +233,36 @@
         mysqli_close($conn);
         return $texto;
     }
+
+    function getDetallesReporte($numEmpleador){
+        include('sql.php');
+        #session_start();
+        $texto = "";
+        $correo = $_SESSION['usuario'];
+        $sql = "SELECT date_format(calculos.fecha,'%d/%m/%y') as fecha,  calculos.transporte, calculos.hora_ent, calculos.hora_sal, calculos.horas_tra
+        FROM calculos
+        WHERE calculos.num_emp='$numEmpleador' AND calculos.num_usuario=(SELECT num_usuario FROM usuarios WHERE correo = '$correo');
+        ";
+        $resultado = mysqli_query($conn,$sql);
+        if(mysqli_num_rows($resultado)){
+            while ($fila = mysqli_fetch_assoc($resultado)){
+                $texto .= "
+                    <tr  style='color:#6c757d;'>
+                        <td align='center' style=' padding: 15px 10px 5px 10px; !important;'>".$fila['fecha']."</td>
+                        <td align='center' style=' padding: 15px 10px 5px 10px; !important; max-width:400px;'>".$fila['hora_ent']."</td>
+                        <td align='center' style=' padding: 15px 10px 5px 10px; !important; max-width:400px;'>".$fila['hora_sal']."</td>
+                        <td align='center' style='color:#28a745; padding: 15px 10px 5px 10px; !important;'>$ ".$fila['transporte']."</td>
+                        <td align='center' style='color:#28a745;padding: 15px 10px 5px 10px; !important;'>".$fila['horas_tra']."</td>
+                    </tr>
+                ";
+            }
+        }
+        else{
+            $texto = 'Error: '. mysqli_error($conn);
+        }
+        mysqli_close($conn);
+        return $texto;
+    }
     
 
     function getTotalReporte($numEmpleador){
