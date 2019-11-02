@@ -1,6 +1,8 @@
 desc usuarios;
 
 SELECT * FROM usuarios;
+SELECT * FROM empleadores;
+SELECT * FROM calculos;
 
 DELETE FROM calculos 
 WHERE num_cal = '3';
@@ -85,3 +87,12 @@ SELECT nombre_emp, nombre_emp_emp
         FROM empleadores
         WHERE num_usuario = (SELECT num_usuario FROM usuarios WHERE correo = 'abelardo@mail.com')
         AND num_emp = '1';
+        
+SELECT date_format(calculos.fecha,'%d/%m/%y') as fecha, actividades.nombre_act, calculos.descripcion, calculos.transporte, calculos.total_cal
+        FROM calculos
+        INNER JOIN actividades ON actividades.num_actividad = calculos.num_actividad
+        WHERE calculos.num_emp='1' AND calculos.num_usuario=(SELECT num_usuario FROM usuarios WHERE correo = 'abel1996abel@gmail.com');
+        
+SELECT date_format(calculos.fecha,'%d/%m/%y') as fecha,  calculos.transporte, calculos.hora_ent, calculos.hora_sal, calculos.horas_tra
+FROM calculos
+WHERE calculos.num_emp='1' AND calculos.num_usuario=(SELECT num_usuario FROM usuarios WHERE correo = 'abel1996abel@gmail.com');
